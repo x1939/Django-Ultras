@@ -2,35 +2,15 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
 from .forms import *
 
-from django.shortcuts import render, get_object_or_404
-from .models import Product, Category
 
 def home(request):
     products = Product.objects.all()
-    categories = Category.objects.all()
-
-    selected_category_title = request.GET.get('category', None)
-
-    if selected_category_title:
-        # Filter products based on the selected category title
-        if selected_category_title.lower() == 'all':
-            selected_category = None
-        else:
-            selected_category = get_object_or_404(Category, title=selected_category_title)
-            products = products.filter(category=selected_category)
-    else:
-        selected_category = None
 
     context = {
         'title': 'Home',
         'products': products,
-        'categories': categories,
-        'selected_category': selected_category,
     }
-
     return render(request, 'home.html', context)
-
-
 
 def about(request):
     context = {
@@ -53,11 +33,15 @@ def contact(request):
 def shop(request):
     products = Product.objects.all()
     categories = Category.objects.all()
+    brands = Brand.objects.all()
 
     selected_category_title = request.GET.get('category', None)
+    selected_brand_name = request.GET.get('brand', None)
+    min_price = request.GET.get('min_price', None)
+    max_price = request.GET.get('max_price', None)
 
+    # Filter products based on the selected category title
     if selected_category_title:
-        # Filter products based on the selected category title
         if selected_category_title.lower() == 'all':
             selected_category = None
         else:
@@ -66,14 +50,34 @@ def shop(request):
     else:
         selected_category = None
 
+    # Filter products based on the selected brand name
+    if selected_brand_name:
+        if selected_brand_name.lower() == 'all':
+            selected_brand = None
+        else:
+            selected_brand = get_object_or_404(Brand, title=selected_brand_name)
+            products = products.filter(brand=selected_brand)
+    else:
+        selected_brand = None
+
+    # Filter products based on price range
+    if min_price is not None and max_price is not None:
+        products = products.filter(price__range=(min_price, max_price))
+
     context = {
         'title': 'Shop',
         'products': products,
         'categories': categories,
+        'brands': brands,
         'selected_category': selected_category,
+        'selected_brand': selected_brand,
+        'min_price': min_price,
+        'max_price': max_price,
     }
 
     return render(request, 'shop.html', context)
+
+
 
 def styles(request):
     context = {
@@ -105,12 +109,9 @@ def single_product(request, slug):
 def like_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
-    # Check if the custom user has already liked the product
     if request.user in product.likes.all():
-        # User has already liked, unlike the product
         product.likes.remove(request.user)
     else:
-        # User hasn't liked, like the product
         product.likes.add(request.user)
 
     return redirect('home')
