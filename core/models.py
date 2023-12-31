@@ -1,8 +1,11 @@
-from collections.abc import Iterable
+from user.models import CustomUser
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
+from django.contrib.auth import get_user_model
+from django.db.models import Min, Max
 
+CustomUser = get_user_model()
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -33,7 +36,7 @@ class Product(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(100)],
         default=0
     )
-    likes = models.IntegerField(default=0)
+    likes = models.ManyToManyField(CustomUser, related_name='liked_products', blank=True)
 
     @property
     def discounted_price(self):

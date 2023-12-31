@@ -60,3 +60,16 @@ def single_product(request, slug):
         'product': Products,
     }
     return render(request, 'single-product.html', context)
+
+def like_product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+
+    # Check if the custom user has already liked the product
+    if request.user in product.likes.all():
+        # User has already liked, unlike the product
+        product.likes.remove(request.user)
+    else:
+        # User hasn't liked, like the product
+        product.likes.add(request.user)
+
+    return redirect('home')

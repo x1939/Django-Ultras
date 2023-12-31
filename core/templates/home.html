@@ -57,43 +57,48 @@
       <div class="swiper product-swiper overflow-hidden">
          <div class="swiper-wrapper">
             {% for product in products %}
-            <div class="swiper-slide">
-               <div class="product-item">
-                  <div class="image-holder">
-                     <img src="{{ product.image.url }}" alt="Books" class="product-image">
-                  </div>
-                  <div class="cart-concern">
-                     <div class="cart-button d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
-                        </button>
-                        <button type="button" class="view-btn tooltip d-flex">
+    <div class="swiper-slide">
+        <div class="product-item">
+            <div class="image-holder">
+                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+            </div>
+            <div class="cart-concern">
+                <div class="cart-button d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart
+                        <i class="icon icon-arrow-io"></i>
+                    </button>
+                    <button type="button" class="view-btn tooltip d-flex">
                         <i class="icon icon-screen-full"></i>
                         <span class="tooltip-text">Quick view</span>
+                    </button>
+                    <form method="post" action="{% url 'like_product' product_id=product.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="wishlist-btn">
+                            <i class="icon icon-heart"></i> {{ product.likes.count }}
                         </button>
-                        <button type="button" class="wishlist-btn">
-                           <i class="icon icon-heart">{{ product.likes }}</i>
-                        </button>
-                     </div>
-                  </div>
-                  {% if product.discount != 0 %}
-                  <div class="discount">{{ product.discount }}% Off</div>
-                  {% endif %}
-                  <div class="product-detail">
-                     <h3 class="product-title">
-                        <a href="{% url 'single-product' slug=product.slug %}">{{ product.title }}</a>
-                     </h3>
-                     <div class="item-price">
-                        {% if product.discount != 0 %}
+                    </form>
+                </div>
+            </div>
+            {% if product.discount != 0 %}
+                <div class="discount">{{ product.discount }}% Off</div>
+            {% endif %}
+            <div class="product-detail">
+                <h3 class="product-title">
+                    <a href="{% url 'single-product' slug=product.slug %}">{{ product.title }}</a>
+                </h3>
+                <div class="item-price">
+                    {% if product.discount != 0 %}
                         <del class="prev-price" style="color: red;">${{ product.price }}</del>
                         <span class="discounted-price" style="color: green;">${{ product.discounted_price }}</span>
-                        {% else %}
+                    {% else %}
                         <span class="original-price text-primary">${{ product.price }}</span>
-                        {% endif %}
-                     </div>
-                  </div>
-               </div>
+                    {% endif %}
+                </div>
             </div>
-            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+
          </div>
       </div>
       <div class="swiper-pagination"></div>
