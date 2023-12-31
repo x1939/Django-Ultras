@@ -86,6 +86,8 @@ class Blog(models.Model):
     image = models.ImageField(upload_to='blog_images/')
     pub_date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         # Auto-generate slug from the title
@@ -93,5 +95,8 @@ class Blog(models.Model):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
-    def __str__(self):
-        return self.title
+    def save(self, *args, **kwargs):
+        if not self.created_at:
+            self.created_at = datetime.now()
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)

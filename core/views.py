@@ -7,16 +7,20 @@ from .forms import *
 
 def home(request):
     products = Product.objects.all()
+    blogs = Blog.objects.all()
 
     context = {
         'title': 'Home',
         'products': products,
+        'blogs': blogs,
     }
     return render(request, 'home.html', context)
 
 def about(request):
+    blogs = Blog.objects.all()
     context = {
         'title': 'About',
+        'blogs': blogs,
     }
     return render(request, 'about.html', context)
 
@@ -37,6 +41,7 @@ def shop(request):
     products = Product.objects.all()
     categories = Category.objects.all()
     brands = Brand.objects.all()
+    blogs = Blog.objects.all()
 
     selected_category_title = request.GET.get('category', None)
     selected_brand_name = request.GET.get('brand', None)
@@ -88,6 +93,7 @@ def shop(request):
         'products': products,
         'categories': categories,
         'brands': brands,
+        'blogs': blogs,
         'selected_category': selected_category,
         'selected_brand': selected_brand,
         'min_price': min_price,
@@ -96,7 +102,6 @@ def shop(request):
     }
 
     return render(request, 'shop.html', context)
-
 
 
 def styles(request):
