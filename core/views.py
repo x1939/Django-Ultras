@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from .models import *
 
 def home(request):
+    Productcs = Product.objects.all()
     context = {
         'title': 'Home',
+        'products': Productcs
     }
     return render(request, 'home.html', context)
 

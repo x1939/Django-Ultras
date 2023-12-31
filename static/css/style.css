@@ -2272,7 +2272,7 @@ i.icon.icon-arrow-io {
 #flash-sales {
     position: relative;
 }
-#flash-sales .product-item .discount {
+.discount {
     font-weight: 500;
     color: var(--light-color);
     width: 100px;
