@@ -12,6 +12,10 @@ media
 .data
 data
 
+#custom images
+user_image/
+products/
+
 # Backup files # 
 *.bak 
 
