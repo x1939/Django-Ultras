@@ -100,3 +100,4 @@ class Blog(models.Model):
             self.created_at = datetime.now()
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+

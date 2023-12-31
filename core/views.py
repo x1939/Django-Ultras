@@ -133,6 +133,15 @@ def single_product(request, slug):
     }
     return render(request, 'single-product.html', context)
 
+def single_blog(request, slug):
+    blog = get_object_or_404(Blog, slug=slug)
+    context = {
+        'title': blog.title,
+        'blog': blog,
+    }
+    return render(request, 'single-blog.html', context)
+
+
 def like_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
