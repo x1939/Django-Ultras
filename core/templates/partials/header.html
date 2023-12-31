@@ -1,0 +1,90 @@
+{% load static %}
+<!-- header start section  -->
+<div class="preloader-wrapper">
+   <div class="preloader">
+   </div>
+</div>
+<div class="search-popup">
+   <div class="search-popup-container">
+      <form role="search" method="get" class="search-form" action="">
+         <input type="search" id="search-form" class="search-field" placeholder="Type and press enter" value="" name="s" />
+         <button type="submit" class="search-submit"><a href="#"><i class="icon icon-search"></i></a></button>
+      </form>
+      <h5 class="cat-list-title">Browse Categories</h5>
+      <ul class="cat-list">
+         <li class="cat-list-item">
+            <a href="{% url 'shop' %}" title="Men Jackets">Men Jackets</a>
+         </li>
+         <li class="cat-list-item">
+            <a href="{% url 'shop' %}" title="Fashion">Fashion</a>
+         </li>
+         <li class="cat-list-item">
+            <a href="{% url 'shop' %}" title="Casual Wears">Casual Wears</a>
+         </li>
+         <li class="cat-list-item">
+            <a href="{% url 'shop' %}" title="Women">Women</a>
+         </li>
+         <li class="cat-list-item">
+            <a href="{% url 'shop' %}" title="Trending">Trending</a>
+         </li>
+         <li class="cat-list-item">
+            <a href="{% url 'shop' %}" title="Hoodie">Hoodie</a>
+         </li>
+         <li class="cat-list-item">
+            <a href="{% url 'shop' %}" title="Kids">Kids</a>
+         </li>
+      </ul>
+   </div>
+</div>
+<header id="header">
+   <div id="header-wrap">
+      <nav class="primary-nav padding-small">
+         <div class="container">
+            <div class="row d-flex align-items-center">
+               <div class="col-lg-2 col-md-2">
+                  <div class="main-logo">
+                     <a href="{% url 'home' %}">
+                     <img src="images/main-logo.png" alt="logo">
+                     </a>
+                  </div>
+               </div>
+               <div class="col-lg-10 col-md-10">
+                  <div class="navbar">
+                     <div id="main-nav" class="stellarnav d-flex justify-content-end right">
+                        <ul class="menu-list">
+                           {% if user.is_authenticated %}
+                           <li>
+                              <h4>Welcome, {{ user.username }}!</h4>
+                           </li>
+                           <li><a href="{% url 'user_logout' %}" class="item-anchor" data-effect="Logout">Logout</a></li>
+                           {% else %}
+                           <li><a href="{% url 'user_login' %}" class="item-anchor" data-effect="Login">Login</a></li>
+                           {% endif %}
+                           <li class="menu-item has-sub">
+                              <a href="{% url 'home' %}" class="item-anchor d-flex align-item-center" data-effect="Home">Home</a>
+                           </li>
+                           <li><a href="{% url 'about' %}" class="item-anchor" data-effect="About">About</a></li>
+                           <li class="menu-item has-sub">
+                              <a href="{% url 'shop' %}" class="item-anchor d-flex align-item-center" data-effect="Shop">Shop</a>
+                           </li>
+                           <li class="menu-item has-sub">
+                              <a href="#" class="item-anchor d-flex align-item-center" data-effect="Pages">Pages<i class="icon icon-chevron-down"></i></a>
+                              <ul class="submenu">
+                                 <li><a href="{% url 'styles' %}" class="item-anchor">Styles</a></li>
+                                 <li><a href="{% url 'thank-you' %}" class="item-anchor active">Thankyou</a></li>
+                              </ul>
+                           </li>
+                           <li class="menu-item has-sub">
+                              <a href="{% url 'blog' %}" class="item-anchor d-flex align-item-center" data-effect="Blog">Blog</a>
+                           </li>
+                           <li><a href="{% url 'contact' %}" class="item-anchor" data-effect="Contact">Contact</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </nav>
+   </div>
+</header>
+<!-- header end section -->
