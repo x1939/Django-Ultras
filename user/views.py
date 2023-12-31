@@ -5,13 +5,14 @@ from .forms import CustomAuthenticationForm, CustomUserCreationForm  # Import th
 
 def register(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('user_login')  # Redirect to the login page after successful registration
+            return redirect('home')  # Change 'home' to your desired URL
     else:
         form = CustomUserCreationForm()
+
     return render(request, 'register.html', {'form': form})
 
 def user_login(request):
