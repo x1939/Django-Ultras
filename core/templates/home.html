@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+{% load filters %}
+
 <section id="billboard" class="overflow-hidden">
    <button class="button-prev">
    <i class="icon icon-chevron-left"></i>
@@ -45,7 +47,6 @@
       </div>
    </div>
 </section>
-
 <section id="featured-products" class="product-store padding-large">
    <div class="container">
       <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
@@ -56,55 +57,53 @@
       </div>
       <div class="swiper product-swiper overflow-hidden">
          <div class="swiper-wrapper">
-            {% for product in products %}
-    <div class="swiper-slide">
-        <div class="product-item">
-            <div class="image-holder">
-                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
-            </div>
-            <div class="cart-concern">
-                <div class="cart-button d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart
+            {% for product in products|sort_by_date %}
+            <div class="swiper-slide">
+               <div class="product-item">
+                  <div class="image-holder">
+                     <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+                  </div>
+                  <div class="cart-concern">
+                     <div class="cart-button d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart
                         <i class="icon icon-arrow-io"></i>
-                    </button>
-                    <button type="button" class="view-btn tooltip d-flex">
+                        </button>
+                        <button type="button" class="view-btn tooltip d-flex">
                         <i class="icon icon-screen-full"></i>
                         <span class="tooltip-text">Quick view</span>
-                    </button>
-                    <form method="post" action="{% url 'like_product' product_id=product.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="wishlist-btn">
-                            <i class="icon icon-heart"></i> {{ product.likes.count }}
                         </button>
-                    </form>
-                </div>
-            </div>
-            {% if product.discount != 0 %}
-                <div class="discount">{{ product.discount }}% Off</div>
-            {% endif %}
-            <div class="product-detail">
-                <h3 class="product-title">
-                    <a href="{% url 'single-product' slug=product.slug %}">{{ product.title }}</a>
-                </h3>
-                <div class="item-price">
-                    {% if product.discount != 0 %}
+                        <form method="post" action="{% url 'like_product' product_id=product.id %}">
+                           {% csrf_token %}
+                           <button type="submit" class="wishlist-btn">
+                           <i class="icon icon-heart"></i> {{ product.likes.count }}
+                           </button>
+                        </form>
+                     </div>
+                  </div>
+                  {% if product.discount != 0 %}
+                  <div class="discount">{{ product.discount }}% Off</div>
+                  {% endif %}
+                  <div class="product-detail">
+                     <h3 class="product-title">
+                        <a href="{% url 'single-product' slug=product.slug %}">{{ product.title }}</a>
+                     </h3>
+                     <div class="item-price">
+                        {% if product.discount != 0 %}
                         <del class="prev-price" style="color: red;">${{ product.price }}</del>
                         <span class="discounted-price" style="color: green;">${{ product.discounted_price }}</span>
-                    {% else %}
+                        {% else %}
                         <span class="original-price text-primary">${{ product.price }}</span>
-                    {% endif %}
-                </div>
+                        {% endif %}
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-{% endfor %}
-
+            {% endfor %}
          </div>
       </div>
       <div class="swiper-pagination"></div>
    </div>
 </section>
-
 <section id="latest-collection">
    <div class="container">
       <div class="product-collection row">
@@ -155,7 +154,6 @@
       </div>
    </div>
 </section>
-
 <section id="subscribe" class="padding-large">
    <div class="container">
       <div class="row">
@@ -174,26 +172,17 @@
       </div>
    </div>
 </section>
-
 <section id="selling-products" class="product-store bg-light-grey padding-large">
    <div class="container">
       <div class="section-header">
          <h2 class="section-title">Best selling products</h2>
       </div>
-      <ul class="tabs list-unstyled">
-         <li data-tab-target="#all" class="active tab">All</li>
-         <li data-tab-target="#shoes" class="tab">Shoes</li>
-         <li data-tab-target="#tshirts" class="tab">Tshirts</li>
-         <li data-tab-target="#pants" class="tab">Pants</li>
-         <li data-tab-target="#hoodie" class="tab">Hoodie</li>
-         <li data-tab-target="#outer" class="tab">Outer</li>
-         <li data-tab-target="#jackets" class="tab">Jackets</li>
-         <li data-tab-target="#accessories" class="tab">Accessories</li>
-      </ul>
+
       <div class="tab-content">
          <div id="all" data-tab-content class="active">
             <div class="row d-flex flex-wrap">
-               {% for product in products %}
+               
+               {% for product in products|sort_by_likes %}
                <div class="product-item col-lg-3 col-md-6 col-sm-6">
                   <div class="image-holder">
                      <img src="{{ product.image.url }}" alt="Books" class="product-image">
@@ -205,9 +194,12 @@
                         <i class="icon icon-screen-full"></i>
                         <span class="tooltip-text">Quick view</span>
                         </button>
-                        <button type="button" class="wishlist-btn">
-                        <i class="icon icon-heart">{{ product.likes }}</i>
-                        </button>
+                        <form method="post" action="{% url 'like_product' product_id=product.id %}">
+                           {% csrf_token %}
+                           <button type="submit" class="wishlist-btn">
+                           <i class="icon icon-heart"></i> {{ product.likes.count }}
+                           </button>
+                        </form>
                      </div>
                   </div>
                   {% if product.discount != 0 %}
@@ -228,6 +220,7 @@
                   </div>
                </div>
                {% endfor %}
+
             </div>
          </div>
       </div>
@@ -296,9 +289,12 @@
                         <i class="icon icon-screen-full"></i>
                         <span class="tooltip-text">Quick view</span>
                         </button>
-                        <button type="button" class="wishlist-btn">
-                           <i class="icon icon-heart">{{ product.likes }}</i>
-                        </button>
+                        <form method="post" action="{% url 'like_product' product_id=product.id %}">
+                           {% csrf_token %}
+                           <button type="submit" class="wishlist-btn">
+                           <i class="icon icon-heart"></i> {{ product.likes.count }}
+                           </button>
+                        </form>
                      </div>
                   </div>
                   <div class="discount">{{ product.discount }}% Off</div>
@@ -321,7 +317,6 @@
       </div>
    </div>
 </section>
-
 <section class="shoppify-section-banner">
    <div class="container">
       <div class="product-collection">
@@ -342,7 +337,6 @@
       </div>
    </div>
 </section>
-
 <section id="quotation" class="align-center padding-large">
    <div class="inner-content">
       <h2 class="section-title divider">Quote of the day</h2>
@@ -353,7 +347,6 @@
    </div>
 </section>
 <hr>
-
 <section id="latest-blog" class="padding-large">
    <div class="container">
       <div class="section-header d-flex flex-wrap align-items-center justify-content-between">

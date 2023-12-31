@@ -2,13 +2,35 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
 from .forms import *
 
+from django.shortcuts import render, get_object_or_404
+from .models import Product, Category
+
 def home(request):
-    Productcs = Product.objects.all()
+    products = Product.objects.all()
+    categories = Category.objects.all()
+
+    selected_category_title = request.GET.get('category', None)
+
+    if selected_category_title:
+        # Filter products based on the selected category title
+        if selected_category_title.lower() == 'all':
+            selected_category = None
+        else:
+            selected_category = get_object_or_404(Category, title=selected_category_title)
+            products = products.filter(category=selected_category)
+    else:
+        selected_category = None
+
     context = {
         'title': 'Home',
-        'products': Productcs
+        'products': products,
+        'categories': categories,
+        'selected_category': selected_category,
     }
+
     return render(request, 'home.html', context)
+
+
 
 def about(request):
     context = {
@@ -29,9 +51,28 @@ def contact(request):
     return render(request, 'contact.html', {'form': form})
 
 def shop(request):
+    products = Product.objects.all()
+    categories = Category.objects.all()
+
+    selected_category_title = request.GET.get('category', None)
+
+    if selected_category_title:
+        # Filter products based on the selected category title
+        if selected_category_title.lower() == 'all':
+            selected_category = None
+        else:
+            selected_category = get_object_or_404(Category, title=selected_category_title)
+            products = products.filter(category=selected_category)
+    else:
+        selected_category = None
+
     context = {
         'title': 'Shop',
+        'products': products,
+        'categories': categories,
+        'selected_category': selected_category,
     }
+
     return render(request, 'shop.html', context)
 
 def styles(request):
@@ -53,11 +94,11 @@ def blog(request):
     return render(request, 'blog.html', context)
 
 def single_product(request, slug):
-    Products = get_object_or_404(Product, slug=slug)
+    products = get_object_or_404(Product, slug=slug)
 
     context = {
-        'title': Products.title,
-        'product': Products,
+        'title': products.title,
+        'product': products,
     }
     return render(request, 'single-product.html', context)
 
