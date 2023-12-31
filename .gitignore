@@ -16,6 +16,9 @@ data
 user_images/
 products/
 
+#ckeditor
+ckeditor_uploads/
+
 # Backup files # 
 *.bak 
 

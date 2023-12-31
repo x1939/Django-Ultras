@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'user',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -138,12 +139,4 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'user.CustomUser'
 
-CKEDITOR_UPLOAD_PATH = 'uploads/'
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'full',
-        'height': 300,
-        'width': 800,
-    },
-}
-CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "ckeditor_uploads/"
