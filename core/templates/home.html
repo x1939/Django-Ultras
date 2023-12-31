@@ -80,7 +80,7 @@
                   {% endif %}
                   <div class="product-detail">
                      <h3 class="product-title">
-                        <a href="single-product.html">{{ product.title }}</a>
+                        <a href="{% url 'single-product' slug=product.slug %}">{{ product.title }}</a>
                      </h3>
                      <div class="item-price">
                         {% if product.discount != 0 %}
@@ -150,6 +150,7 @@
       </div>
    </div>
 </section>
+
 <section id="subscribe" class="padding-large">
    <div class="container">
       <div class="row">
@@ -168,6 +169,7 @@
       </div>
    </div>
 </section>
+
 <section id="selling-products" class="product-store bg-light-grey padding-large">
    <div class="container">
       <div class="section-header">
@@ -208,7 +210,7 @@
                   {% endif %}
                   <div class="product-detail">
                      <h3 class="product-title">
-                        <a href="single-product.html">{{ product.title }}</a>
+                        <a href="{% url 'single-product' slug=product.slug %}">{{ product.title }}</a>
                      </h3>
                      <div class="item-price">
                         {% if product.discount != 0 %}
@@ -297,7 +299,7 @@
                   <div class="discount">{{ product.discount }}% Off</div>
                   <div class="product-detail">
                      <h3 class="product-title">
-                        <a href="">{{ product.title }}</a>
+                        <a href="{% url 'single-product' slug=product.slug %}">{{ product.title }}</a>
                      </h3>
                      <div class="item-price">
                         <del class="prev-price" style="color: red;">${{ product.price }}</del>
@@ -314,6 +316,7 @@
       </div>
    </div>
 </section>
+
 <section class="shoppify-section-banner">
    <div class="container">
       <div class="product-collection">
@@ -334,6 +337,7 @@
       </div>
    </div>
 </section>
+
 <section id="quotation" class="align-center padding-large">
    <div class="inner-content">
       <h2 class="section-title divider">Quote of the day</h2>
@@ -344,6 +348,7 @@
    </div>
 </section>
 <hr>
+
 <section id="latest-blog" class="padding-large">
    <div class="container">
       <div class="section-header d-flex flex-wrap align-items-center justify-content-between">

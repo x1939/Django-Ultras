@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <!-- Your existing single product template code -->
+  <div class="main-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="page-title">{{ product.title }}</h1>
+          <div class="breadcrumbs">
+            <span class="item">
+              <a href="{% url 'home' %}">Home /</a>
+            </span>
+            <span class="item">{{ product.title }}</span>
+          </div>
+          <div class="feature-image">
+            <img src="{{ product.image.url }}" alt="{{ product.title }}" class="jarallax-img">
+          </div>
+          <div class="post-content">
+            <p>{{ product.description }}</p>
+            <div class="item-price">
+              {% if product.discount != 0 %}
+              <del class="prev-price" style="color: red;">${{ product.price }}</del>
+              <span class="discounted-price" style="color: green;">${{ product.discounted_price }}</span>
+              {% else %}
+              <span class="original-price text-primary">${{ product.price }}</span>
+              {% endif %}
+           </div>
+            <!-- Other product details go here -->
+          </div>
+          <!-- Add your tags, social links, and comment section if needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
