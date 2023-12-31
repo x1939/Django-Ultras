@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
+from .forms import *
 
 def home(request):
     Productcs = Product.objects.all()
@@ -16,10 +17,16 @@ def about(request):
     return render(request, 'about.html', context)
 
 def contact(request):
-    context = {
-        'title': 'Contact',
-    }
-    return render(request, 'contact.html', context)
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact_instance = form.save()
+
+            return redirect('thank-you')
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
 
 def shop(request):
     context = {
