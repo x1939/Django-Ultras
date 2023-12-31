@@ -4,6 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model
 from django.db.models import Min, Max
+from datetime import datetime
 
 CustomUser = get_user_model()
 class BaseModel(models.Model):
@@ -30,6 +31,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     slug = models.SlugField(unique=True, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     discount = models.DecimalField(
         max_digits=5,
@@ -49,6 +51,8 @@ class Product(models.Model):
         return self.title
     
     def save(self, *args, **kwargs):
+        if not self.created_at:
+            self.created_at = datetime.now()
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
