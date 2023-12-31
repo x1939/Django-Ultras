@@ -79,3 +79,19 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Blog(models.Model):
+    title = models.CharField(max_length=255)
+    content = RichTextField()
+    image = models.ImageField(upload_to='blog_images/')
+    pub_date = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        # Auto-generate slug from the title
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title

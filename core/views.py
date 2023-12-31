@@ -1,4 +1,6 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import redirect, render, get_object_or_404
+from django.db.models import Q
 from .models import *
 from .forms import *
 
@@ -30,6 +32,7 @@ def contact(request):
 
     return render(request, 'contact.html', {'form': form})
 
+
 def shop(request):
     products = Product.objects.all()
     categories = Category.objects.all()
@@ -39,6 +42,7 @@ def shop(request):
     selected_brand_name = request.GET.get('brand', None)
     min_price = request.GET.get('min_price', None)
     max_price = request.GET.get('max_price', None)
+    search_query = request.GET.get('search', None)
 
     # Filter products based on the selected category title
     if selected_category_title:
@@ -64,6 +68,21 @@ def shop(request):
     if min_price is not None and max_price is not None:
         products = products.filter(price__range=(min_price, max_price))
 
+    # Filter products based on the search query (product title)
+    if search_query:
+        products = products.filter(Q(title__icontains=search_query))
+
+    # Pagination
+    paginator = Paginator(products, 8)  # Show 10 products per page
+    page = request.GET.get('page')
+
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+
     context = {
         'title': 'Shop',
         'products': products,
@@ -73,6 +92,7 @@ def shop(request):
         'selected_brand': selected_brand,
         'min_price': min_price,
         'max_price': max_price,
+        'search_query': search_query,
     }
 
     return render(request, 'shop.html', context)
@@ -92,8 +112,10 @@ def thank_you(request):
     return render(request, 'thank-you.html', context)
 
 def blog(request):
+    blogs = Blog.objects.all()
     context = {
         'title': 'Blog',
+        'blogs': blogs,
     }
     return render(request, 'blog.html', context)
 

@@ -15,6 +15,7 @@ data
 #custom images
 user_images/
 products/
+blog_images/
 
 #ckeditor
 ckeditor_uploads/

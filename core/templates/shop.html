@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<section class="site-banner jarallax min-height300 padding-large" style="background: url(images/hero-image1.jpg) no-repeat; background-position: top;">
+<section class="site-banner jarallax min-height300 padding-large" style="background: url({% static 'images/hero-image1.jpg' %}) no-repeat; background-position: top;">
    <div class="container">
       <div class="row">
          <div class="col-md-12">
@@ -77,58 +77,64 @@
                      </div>
                   </div>
                </div>
-               <nav class="navigation paging-navigation text-center padding-medium" role="navigation">
-                  <div class="pagination loop-pagination d-flex justify-content-center">
-                     <a href="#" class="pagination-arrow d-flex align-items-center">
-                     <i class="icon icon-arrow-left"></i>
-                     </a>
-                     <span aria-current="page" class="page-numbers current">1</span>
-                     <a class="page-numbers" href="#">2</a>
-                     <a class="page-numbers" href="#">3</a>
-                     <a href="#" class="pagination-arrow d-flex align-items-center">
-                     <i class="icon icon-arrow-right"></i>
-                     </a>
-                  </div>
-               </nav>
+               <!-- Add the following pagination section after the product listing -->
+<nav class="navigation paging-navigation text-center padding-medium" role="navigation">
+   <div class="pagination loop-pagination d-flex justify-content-center">
+       {% if products.has_previous %}
+           <a href="?page=1" class="pagination-arrow d-flex align-items-center">
+               <i class="icon icon-arrow-left"></i>
+           </a>
+       {% endif %}
+       {% for num in products.paginator.page_range %}
+           {% if products.number == num %}
+               <span aria-current="page" class="page-numbers current">{{ num }}</span>
+           {% else %}
+               <a class="page-numbers" href="?page={{ num }}">{{ num }}</a>
+           {% endif %}
+       {% endfor %}
+       {% if products.has_next %}
+           <a href="?page={{ products.paginator.num_pages }}" class="pagination-arrow d-flex align-items-center">
+               <i class="icon icon-arrow-right"></i>
+           </a>
+       {% endif %}
+   </div>
+</nav>
+
             </div>
          </section>
          <aside class="col-md-3">
             <div class="sidebar">
-               <div class="widgets widget-menu">
-                  <div class="widget-search-bar">
-                     <form role="search" method="get" class="d-flex">
-                        <input class="search-field" placeholder="Search" type="text">
-                        <button class="btn btn-dark"><i class="icon icon-search"></i></button>
-                     </form>
-                  </div>
+               <div class="widgets widget-search">
+                  <h5 class="widget-title">Search</h5>
+                  <form method="get" action="{% url 'shop' %}">
+                     <label for="search">Product Name:</label>
+                     <input type="text" name="search" id="search" value="{{ search_query }}" placeholder="Search by name">
+                     <button type="submit">Search</button>
+                  </form>
                </div>
                <div class="widgets widget-product-brands">
-                <h5 class="widget-title">Brands</h5>
-                <ul class="product-tags sidebar-list list-unstyled">
-                  <li class="tags-item">
-                    <a href="?brand=all">All Brands</a>
-                </li>
-                    {% for brand in brands %}
-                        <li class="tags-item">
-                            <a href="?brand={{ brand.title }}">{{ brand.title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            
-            <div class="widgets widget-price-filter">
-              <h5 class="widget-title">Filter By Price</h5>
-              <form method="get" action="{% url 'shop' %}">
-                <label for="min_price">Min Price:</label>
-                <input type="number" name="min_price" id="min_price" value="{{ min_price }}" placeholder="Min Price">
-            
-                <label for="max_price">Max Price:</label>
-                <input type="number" name="max_price" id="max_price" value="{{ max_price }}" placeholder="Max Price">
-            
-                <button type="submit">Apply Filters</button>
-            </form>
-          </div>
-          
+                  <h5 class="widget-title">Brands</h5>
+                  <ul class="product-tags sidebar-list list-unstyled">
+                     <li class="tags-item">
+                        <a href="?brand=all">All Brands</a>
+                     </li>
+                     {% for brand in brands %}
+                     <li class="tags-item">
+                        <a href="?brand={{ brand.title }}">{{ brand.title }}</a>
+                     </li>
+                     {% endfor %}
+                  </ul>
+               </div>
+               <div class="widgets widget-price-filter">
+                  <h5 class="widget-title">Filter By Price</h5>
+                  <form method="get" action="{% url 'shop' %}">
+                     <label for="min_price">Min Price:</label>
+                     <input type="number" name="min_price" id="min_price" value="{{ min_price }}" placeholder="Min Price">
+                     <label for="max_price">Max Price:</label>
+                     <input type="number" name="max_price" id="max_price" value="{{ max_price }}" placeholder="Max Price">
+                     <button type="submit">Apply Filters</button>
+                  </form>
+               </div>
             </div>
          </aside>
       </div>
