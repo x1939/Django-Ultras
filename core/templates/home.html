@@ -2,7 +2,6 @@
 {% load static %}
 {% block content %}
 {% load filters %}
-
 <section id="billboard" class="overflow-hidden">
    <button class="button-prev">
    <i class="icon icon-chevron-left"></i>
@@ -20,7 +19,7 @@
                         <h2 class="banner-title">Summer Collection</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac.</p>
                         <div class="btn-wrap">
-                           <a href="shop.html" class="btn btn-light btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
+                           <a href="{% url 'shop' %}" class="btn btn-light btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
                            </a>
                         </div>
                      </div>
@@ -36,7 +35,7 @@
                         <h2 class="banner-title">Casual Collection</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac.</p>
                         <div class="btn-wrap">
-                           <a href="shop.html" class="btn btn-light btn-light-arrow btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
+                           <a href="{% url 'shop' %}" class="btn btn-light btn-light-arrow btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
                            </a>
                         </div>
                      </div>
@@ -52,12 +51,13 @@
       <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
          <h2 class="section-title">Featured Products</h2>
          <div class="btn-wrap">
-            <a href="shop.html" class="d-flex align-items-center">View all products <i class="icon icon icon-arrow-io"></i></a>
+            <a href="{% url 'shop' %}" class="d-flex align-items-center">View all products <i class="icon icon icon-arrow-io"></i></a>
          </div>
       </div>
       <div class="swiper product-swiper overflow-hidden">
          <div class="swiper-wrapper">
             {% for product in products|sort_by_date %}
+            {% if forloop.counter <= 4 %}
             <div class="swiper-slide">
                <div class="product-item">
                   <div class="image-holder">
@@ -69,7 +69,9 @@
                         <i class="icon icon-arrow-io"></i>
                         </button>
                         <button type="button" class="view-btn tooltip d-flex">
+                        <a href="{% url 'single-product' slug=product.slug %}">
                         <i class="icon icon-screen-full"></i>
+                        </a>
                         <span class="tooltip-text">Quick view</span>
                         </button>
                         <form method="post" action="{% url 'like_product' product_id=product.id %}">
@@ -98,6 +100,7 @@
                   </div>
                </div>
             </div>
+            {% endif %}
             {% endfor %}
          </div>
       </div>
@@ -117,7 +120,7 @@
                   <h3 class="item-title">street wear.</h3>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
                   <div class="btn-wrap">
-                     <a href="shop.html" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
+                     <a href="{% url 'shop' %}" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                      </a>
                   </div>
                </div>
@@ -132,7 +135,7 @@
                   <div class="categories">Basic Collection</div>
                   <h3 class="item-title">Basic shoes.</h3>
                   <div class="btn-wrap">
-                     <a href="shop.html" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
+                     <a href="{% url 'shop' %}" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                      </a>
                   </div>
                </div>
@@ -145,7 +148,7 @@
                   <div class="categories">Best Selling Product</div>
                   <h3 class="item-title">woolen hat.</h3>
                   <div class="btn-wrap">
-                     <a href="shop.html" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
+                     <a href="{% url 'shop' %}" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                      </a>
                   </div>
                </div>
@@ -177,12 +180,11 @@
       <div class="section-header">
          <h2 class="section-title">Best selling products</h2>
       </div>
-
       <div class="tab-content">
          <div id="all" data-tab-content class="active">
             <div class="row d-flex flex-wrap">
-               
                {% for product in products|sort_by_likes %}
+               {% if forloop.counter <= 4 %}
                <div class="product-item col-lg-3 col-md-6 col-sm-6">
                   <div class="image-holder">
                      <img src="{{ product.image.url }}" alt="Books" class="product-image">
@@ -191,7 +193,9 @@
                      <div class="cart-button d-flex justify-content-between align-items-center">
                         <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i></button>
                         <button type="button" class="view-btn tooltip d-flex">
+                        <a href="{% url 'single-product' slug=product.slug %}">
                         <i class="icon icon-screen-full"></i>
+                        </a>
                         <span class="tooltip-text">Quick view</span>
                         </button>
                         <form method="post" action="{% url 'like_product' product_id=product.id %}">
@@ -219,8 +223,8 @@
                      </div>
                   </div>
                </div>
+               {% endif %}
                {% endfor %}
-
             </div>
          </div>
       </div>
@@ -279,6 +283,7 @@
             <!-- Start getting the products with discounts -->
             {% for product in products %}
             {% if product.discount != 0 %}
+            {% if forloop.counter <= 4 %}
             <div class="swiper-slide">
                <div class="product-item">
                   <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
@@ -286,7 +291,9 @@
                      <div class="cart-button d-flex justify-content-between align-items-center">
                         <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i></button>
                         <button type="button" class="view-btn tooltip d-flex">
+                        <a href="{% url 'single-product' slug=product.slug %}">
                         <i class="icon icon-screen-full"></i>
+                        </a>
                         <span class="tooltip-text">Quick view</span>
                         </button>
                         <form method="post" action="{% url 'like_product' product_id=product.id %}">
@@ -310,6 +317,7 @@
                </div>
             </div>
             {% endif %}
+            {% endif %}
             {% endfor %}
             <!-- Stop getting the products with discounts -->
          </div>
@@ -329,7 +337,7 @@
                <h3 class="item-title">The casual selection.</h3>
                <p>Vel non viverra ligula odio ornare turpis mauris. Odio aliquam, tincidunt ut vitae elit risus. Tempor egestas condimentum et ac rutrum dui, odio.</p>
                <div class="btn-wrap">
-                  <a href="shop.html" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
+                  <a href="{% url 'shop' %}" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                   </a>
                </div>
             </div>
@@ -352,7 +360,7 @@
       <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
          <h2 class="section-title">our Journal</h2>
          <div class="btn-wrap align-right">
-            <a href="blog.html" class="d-flex align-items-center">Read All Articles <i class="icon icon icon-arrow-io"></i>
+            <a href="{% url 'blog' %}" class="d-flex align-items-center">Read All Articles <i class="icon icon icon-arrow-io"></i>
             </a>
          </div>
       </div>
@@ -373,44 +381,6 @@
                      <a href="single-post.html">top 10 casual look ideas to dress up your kids</a>
                   </h3>
                   <a href="blog.html" class="blog-categories">Fashion</a>
-               </div>
-            </div>
-         </article>
-         <article class="col-md-4 post-item">
-            <div class="image-holder zoom-effect">
-               <a href="single-post.html">
-               <img src="{% static 'images/post-img2.jpg' %}" alt="post" class="post-image">
-               </a>
-            </div>
-            <div class="post-content d-flex">
-               <div class="meta-date">
-                  <div class="meta-day text-primary">25</div>
-                  <div class="meta-month">Aug-2021</div>
-               </div>
-               <div class="post-header">
-                  <h3 class="post-title">
-                     <a href="single-post.html">Latest trends of wearing street wears supremely</a>
-                  </h3>
-                  <a href="blog.html" class="blog-categories">Trending</a>
-               </div>
-            </div>
-         </article>
-         <article class="col-md-4 post-item">
-            <div class="image-holder zoom-effect">
-               <a href="single-post.html">
-               <img src="{% static 'images/post-img3.jpg' %}" alt="post" class="post-image">
-               </a>
-            </div>
-            <div class="post-content d-flex">
-               <div class="meta-date">
-                  <div class="meta-day text-primary">28</div>
-                  <div class="meta-month">Aug-2021</div>
-               </div>
-               <div class="post-header">
-                  <h3 class="post-title">
-                     <a href="single-post.html">types of comfortable clothes ideas for women</a>
-                  </h3>
-                  <a href="blog.html" class="blog-categories">Inspiration</a>
                </div>
             </div>
          </article>
