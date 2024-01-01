@@ -30,12 +30,7 @@ class ContactForm(forms.ModelForm):
             self.fields['email'].initial = user.email
             self.fields['email'].label = ''
 
-            # Set 'image' field as read-only and hide the label
-            if user.image:
-                self.fields['image'] = forms.ImageField(required=False)
-                self.fields['image'].widget.attrs['readonly'] = True
-                self.fields['image'].initial = user.image
-                self.fields['image'].label = ''
-                self.fields['image'].widget.attrs['style'] = 'display:none;'
+            # Remove the 'image' field from the form
+            self.fields.pop('image', None)
 
     # Add any additional validation or customization if needed
