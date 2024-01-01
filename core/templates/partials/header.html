@@ -1,39 +1,8 @@
 {% load static %}
+{% load i18n %}
 <!-- header start section  -->
 <div class="preloader-wrapper">
    <div class="preloader">
-   </div>
-</div>
-<div class="search-popup">
-   <div class="search-popup-container">
-      <form role="search" method="get" class="search-form" action="">
-         <input type="search" id="search-form" class="search-field" placeholder="Type and press enter" value="" name="s" />
-         <button type="submit" class="search-submit"><a href="#"><i class="icon icon-search"></i></a></button>
-      </form>
-      <h5 class="cat-list-title">Browse Categories</h5>
-      <ul class="cat-list">
-         <li class="cat-list-item">
-            <a href="{% url 'shop' %}" title="Men Jackets">Men Jackets</a>
-         </li>
-         <li class="cat-list-item">
-            <a href="{% url 'shop' %}" title="Fashion">Fashion</a>
-         </li>
-         <li class="cat-list-item">
-            <a href="{% url 'shop' %}" title="Casual Wears">Casual Wears</a>
-         </li>
-         <li class="cat-list-item">
-            <a href="{% url 'shop' %}" title="Women">Women</a>
-         </li>
-         <li class="cat-list-item">
-            <a href="{% url 'shop' %}" title="Trending">Trending</a>
-         </li>
-         <li class="cat-list-item">
-            <a href="{% url 'shop' %}" title="Hoodie">Hoodie</a>
-         </li>
-         <li class="cat-list-item">
-            <a href="{% url 'shop' %}" title="Kids">Kids</a>
-         </li>
-      </ul>
    </div>
 </div>
 <header id="header">
@@ -44,7 +13,7 @@
                <div class="col-lg-2 col-md-2">
                   <div class="main-logo">
                      <a href="{% url 'home' %}">
-                     <h2>{{ logo.title }}</h2>
+                     <h2>{% trans logo.title %}</h2>
                      </a>
                   </div>
                </div>
@@ -54,30 +23,30 @@
                         <ul class="menu-list">
                            {% if user.is_authenticated %}
                            <li>
-                              <h4>Welcome, {{ user.username }}!</h4>
+                              <h4>{% trans 'Welcome' %}, {{ user.username }}!</h4>
                            </li>
-                           <li><a href="{% url 'user_logout' %}" class="item-anchor" data-effect="Logout">Logout</a></li>
+                           <li><a href="{% url 'user_logout' %}" class="item-anchor" data-effect="{% trans 'Logout' %}">{% trans 'Logout' %}</a></li>
                            {% else %}
-                           <li><a href="{% url 'user_login' %}" class="item-anchor" data-effect="Login">Login</a></li>
+                           <li><a href="{% url 'user_login' %}" class="item-anchor" data-effect="{% trans 'Login' %}">{% trans 'Login' %}</a></li>
                            {% endif %}
                            <li class="menu-item has-sub">
-                              <a href="{% url 'home' %}" class="item-anchor d-flex align-item-center" data-effect="Home">Home</a>
+                              <a href="{% url 'home' %}" class="item-anchor d-flex align-item-center" data-effect="{% trans 'Home' %}">{% trans 'Home' %}</a>
                            </li>
-                           <li><a href="{% url 'about' %}" class="item-anchor" data-effect="About">About</a></li>
+                           <li><a href="{% url 'about' %}" class="item-anchor" data-effect="{% trans 'About' %}">{% trans 'About' %}</a></li>
                            <li class="menu-item has-sub">
-                              <a href="{% url 'shop' %}" class="item-anchor d-flex align-item-center" data-effect="Shop">Shop</a>
+                              <a href="{% url 'shop' %}" class="item-anchor d-flex align-item-center" data-effect="{% trans 'Shop' %}">{% trans 'Shop' %}</a>
                            </li>
                            <li class="menu-item has-sub">
-                              <a href="#" class="item-anchor d-flex align-item-center" data-effect="Pages">Pages<i class="icon icon-chevron-down"></i></a>
+                              <a href="#" class="item-anchor d-flex align-item-center" data-effect="{% trans 'Pages' %}">{% trans 'Pages' %}<i class="icon icon-chevron-down"></i></a>
                               <ul class="submenu">
-                                 <li><a href="{% url 'styles' %}" class="item-anchor">Styles</a></li>
-                                 <li><a href="{% url 'thank-you' %}" class="item-anchor active">Thankyou</a></li>
+                                 <li><a href="{% url 'styles' %}" class="item-anchor">{% trans 'Styles' %}</a></li>
+                                 <li><a href="{% url 'thank-you' %}" class="item-anchor active">{% trans 'Thankyou' %}</a></li>
                               </ul>
                            </li>
                            <li class="menu-item has-sub">
-                              <a href="{% url 'blog' %}" class="item-anchor d-flex align-item-center" data-effect="Blog">Blog</a>
+                              <a href="{% url 'blog' %}" class="item-anchor d-flex align-item-center" data-effect="{% trans 'Blog' %}">{% trans 'Blog' %}</a>
                            </li>
-                           <li><a href="{% url 'contact' %}" class="item-anchor" data-effect="Contact">Contact</a></li>
+                           <li><a href="{% url 'contact' %}" class="item-anchor" data-effect="{% trans 'Contact' %}">{% trans 'Contact' %}</a></li>
                         </ul>
                      </div>
                   </div>
