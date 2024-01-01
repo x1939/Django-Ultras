@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contact
+from .models import *
 from user.models import CustomUser
 
 class ContactForm(forms.ModelForm):
@@ -34,3 +34,4 @@ class ContactForm(forms.ModelForm):
             self.fields.pop('image', None)
 
     # Add any additional validation or customization if needed
+

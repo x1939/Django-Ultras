@@ -80,7 +80,21 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+class Information(models.Model):
+    email = models.EmailField(blank=True, null=True)
+    phone = models.CharField(max_length=100, blank=True, null=True)
+    address = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.email
     
+class Logo(models.Model):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
 class Blog(models.Model):
     title = models.CharField(max_length=255)
     content = RichTextField()
