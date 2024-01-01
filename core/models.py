@@ -3,11 +3,11 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model
-from django.db.models import Min, Max
-from datetime import datetime
+from django.utils import timezone
 from ckeditor.fields import RichTextField
 
 CustomUser = get_user_model()
+
 class BaseModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -68,13 +68,14 @@ class Product(models.Model):
     
     def save(self, *args, **kwargs):
         if not self.created_at:
-            self.created_at = datetime.now()
+            self.created_at = timezone.now()
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
+
 class Contact(models.Model):
     name = models.CharField(max_length=100)
-    email = models.EmailField()
+    email = models.EmailField(blank=True, null=True)  # Allow for cases where email might be missing
     content = models.TextField()
 
     def __str__(self):
@@ -97,7 +98,6 @@ class Blog(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.created_at:
-            self.created_at = datetime.now()
+            self.created_at = timezone.now()
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-

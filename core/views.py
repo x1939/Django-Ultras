@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import *
 from .forms import *
@@ -26,13 +27,12 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST, user=request.user if request.user.is_authenticated else None)
         if form.is_valid():
             contact_instance = form.save()
-
             return redirect('thank-you')
     else:
-        form = ContactForm()
+        form = ContactForm(user=request.user if request.user.is_authenticated else None)
 
     return render(request, 'contact.html', {'form': form})
 
@@ -133,13 +133,12 @@ def single_product(request, slug):
     }
     return render(request, 'single-product.html', context)
 
+
 def single_blog(request, slug):
-    blog = get_object_or_404(Blog, slug=slug)
-    context = {
-        'title': blog.title,
-        'blog': blog,
-    }
-    return render(request, 'single-blog.html', context)
+    blog = Blog.objects.get(slug=slug)
+
+    return render(request, 'single-blog.html', {'blog': blog})
+
 
 
 def like_product(request, product_id):
