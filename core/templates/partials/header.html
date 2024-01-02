@@ -3,25 +3,44 @@
 <!-- header start section  -->
 <div class="preloader-wrapper">
    <div class="preloader">
-      <form id="languageForm" action="{% url 'set_language' %}" method="post" style="display: block;">
-         {% csrf_token %}
-         <input type="hidden" name="next" value="{{ request.path }}">
-         <select style="width: 50px; height: 30px; border-radius: 15%; border: none; color: rgb(112, 58, 58); font-size: 18px;" name="language" onchange="this.form.submit()">
-         {% get_current_language as LANGUAGE_CODE %}
-         {{ LANGUAGE_CODE }}
-         {% get_available_languages as LANGUAGES %}
-         {% get_language_info_list for LANGUAGES as languages %}
-         {% for language in languages %}
-         <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-         {{ language.code }}
-         </option>
-         {% endfor %}
-         </select>
-      </form>
    </div>
 </div>
 <header id="header">
    <div id="header-wrap">
+      <nav class="secondary-nav border-bottom">
+         <div class="container">
+           <div class="row d-flex align-items-center">
+             <div class="col-md-4 header-contact">
+               <p>Let's talk! <strong>{{ information.phone }}</strong>
+               </p>
+             </div>
+             <div class="col-md-4 shipping-purchase text-center">
+               <p>Free shipping on a purchase value of $200</p>
+             </div>
+             <div class="col-md-4 col-sm-12 user-items">
+               <ul class="d-flex justify-content-end list-unstyled">
+                 <li>
+                  <form id="languageForm" action="{% url 'set_language' %}" method="post" style="display: block;">
+                     {% csrf_token %}
+                     <input type="hidden" name="next" value="{{ request.path }}">
+                     <select style="width: 50px; height: 30px; border-radius: 15%; border: none; color: rgb(112, 58, 58); font-size: 18px;" name="language" onchange="this.form.submit()">
+                     {% get_current_language as LANGUAGE_CODE %}
+                     {{ LANGUAGE_CODE }}
+                     {% get_available_languages as LANGUAGES %}
+                     {% get_language_info_list for LANGUAGES as languages %}
+                     {% for language in languages %}
+                     <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                     {{ language.code }}
+                     </option>
+                     {% endfor %}
+                     </select>
+                  </form>
+                 </li>
+               </ul>
+             </div>
+           </div>
+         </div>
+       </nav>
       <nav class="primary-nav padding-small">
          <div class="container">
             <div class="row d-flex align-items-center">

@@ -25,6 +25,7 @@ def about(request):
     }
     return render(request, 'about.html', context)
 
+@login_required
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST, user=request.user if request.user.is_authenticated else None)
@@ -122,6 +123,7 @@ def blog(request):
     }
     return render(request, 'blog.html', context)
 
+@login_required
 def single_product(request, slug):
     products = get_object_or_404(Product, slug=slug)
 
@@ -154,6 +156,7 @@ def single_blog(request, slug):
 
     return render(request, 'single-blog.html', context)
 
+@login_required
 def like_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
