@@ -1,69 +1,67 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-
-    <section id="thank-you" class="padding-large bg-light-grey">
-      <div class="container">
-        <div class="row">
-          <div class="page-header col-md-6">
+<section id="thank-you" class="padding-large bg-light-grey">
+   <div class="container">
+      <div class="row">
+         <div class="page-header col-md-6">
             <div class="section-header">
-              <h1 class="page-title">Thank You!</h1>
-              <p>We will get back to you as soon as possible.</p>
+               <h1 class="page-title">Thank You!</h1>
+               <p>We will get back to you as soon as possible.</p>
             </div>
-          </div>
-          <div class="contact-information">
+         </div>
+         <div class="contact-information">
             <div class="col-md-6">
-              <div class="section-header">
-                <h2 class="section-title">Get in touch</h2>
-              </div>
-              <div class="row">
-                <div class="d-flex flex-wrap bg-light">
-                  <div class="col-md-6 border-right border-bottom">
-                    <div class="detail">
-                      <h3>Phones</h3>
-                      <ul class="list-unstyled">
-                        <li>
-                          <i class="icon icon-phone"></i>{{ information.phone }}
-                        </li>
-                        <li>
-                          <i class="icon icon-phone"></i>{{ information.phone }}
-                        </li>
-                      </ul>
-                    </div>
+               <div class="section-header">
+                  <h2 class="section-title">Get in touch</h2>
+               </div>
+               <div class="row">
+                  <div class="d-flex flex-wrap bg-light">
+                     <div class="col-md-6 border-right border-bottom">
+                        <div class="detail">
+                           <h3>Phones</h3>
+                           <ul class="list-unstyled">
+                              <li>
+                                 <i class="icon icon-phone"></i>{{ information.phone }}
+                              </li>
+                              <li>
+                                 <i class="icon icon-phone"></i>{{ information.phone }}
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-6 border-bottom">
+                        <div class="detail">
+                           <h3>Emails</h3>
+                           <ul class="list-unstyled">
+                              <li>
+                                 <i class="icon icon-envelope"></i>
+                                 <a href="mailto:{{ information.email }}">{{ information.email }}</a>
+                              </li>
+                              <li>
+                                 <i class="icon icon-envelope"></i>
+                                 <a href="mailto:{{ information.email }}">{{ information.email }}</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-6 border-right">
+                        <div class="address detail">
+                           <h3>Address</h3>
+                           <ul class="list-unstyled">
+                              <li>
+                                 <i class="icon icon-location"></i>
+                                 <span>{{ information.address }}</span>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
                   </div>
-                  <div class="col-md-6 border-bottom">
-                    <div class="detail">
-                      <h3>Emails</h3>
-                      <ul class="list-unstyled">
-                        <li>
-                          <i class="icon icon-envelope"></i>
-                          <a href="mailto:{{ information.email }}">{{ information.email }}</a>
-                        </li>
-                        <li>
-                          <i class="icon icon-envelope"></i>
-                          <a href="mailto:{{ information.email }}">{{ information.email }}</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-md-6 border-right">
-                    <div class="address detail">
-                      <h3>Address</h3>
-                      <ul class="list-unstyled">
-                        <li>
-                          <i class="icon icon-location"></i>
-                          <span>{{ information.address }}</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+               </div>
             </div>
-          </div>
-        </div>
+         </div>
       </div>
-      </div>
-    </section>
-    
+   </div>
+   </div>
+</section>
 {% endblock %}

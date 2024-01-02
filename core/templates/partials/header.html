@@ -7,17 +7,17 @@
          {% csrf_token %}
          <input type="hidden" name="next" value="{{ request.path }}">
          <select style="width: 50px; height: 30px; border-radius: 15%; border: none; color: rgb(112, 58, 58); font-size: 18px;" name="language" onchange="this.form.submit()">
-             {% get_current_language as LANGUAGE_CODE %}
-             {{ LANGUAGE_CODE }}
-             {% get_available_languages as LANGUAGES %}
-             {% get_language_info_list for LANGUAGES as languages %}
-             {% for language in languages %}
-             <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                 {{ language.code }}
-             </option>
-             {% endfor %}
+         {% get_current_language as LANGUAGE_CODE %}
+         {{ LANGUAGE_CODE }}
+         {% get_available_languages as LANGUAGES %}
+         {% get_language_info_list for LANGUAGES as languages %}
+         {% for language in languages %}
+         <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+         {{ language.code }}
+         </option>
+         {% endfor %}
          </select>
-       </form>
+      </form>
    </div>
 </div>
 <header id="header">
@@ -28,7 +28,7 @@
                <div class="col-lg-2 col-md-2">
                   <div class="main-logo">
                      <a href="{% url 'home' %}">
-                     <h2>{% trans logo.title %}</h2>
+                        <h2>{% trans logo.title %}</h2>
                      </a>
                   </div>
                </div>

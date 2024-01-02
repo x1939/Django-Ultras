@@ -365,25 +365,25 @@
       </div>
       <div class="row d-flex flex-wrap">
          {% for blog in blogs|sort_by_date_blogs %}
-        <article class="col-md-4 post-item">
-          <div class="image-holder zoom-effect">
-              <a href="">
-                  <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="post-image">
-              </a>
-          </div>
-          <div class="post-content d-flex">
-              <div class="meta-date">
+         <article class="col-md-4 post-item">
+            <div class="image-holder zoom-effect">
+               <a href="">
+               <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="post-image">
+               </a>
+            </div>
+            <div class="post-content d-flex">
+               <div class="meta-date">
                   <div class="meta-day text-primary">{{ blog.pub_date.day }}</div>
                   <div class="meta-month">{{ blog.pub_date|date:"M-Y" }}</div>
-              </div>
-              <div class="post-header">
+               </div>
+               <div class="post-header">
                   <h3 class="post-title">
-                      <a href="">{{ blog.title }}</a>
+                     <a href="">{{ blog.title }}</a>
                   </h3>
-              </div>
-          </div>
-      </article>
-      {% endfor %}
+               </div>
+            </div>
+         </article>
+         {% endfor %}
       </div>
    </div>
 </section>
