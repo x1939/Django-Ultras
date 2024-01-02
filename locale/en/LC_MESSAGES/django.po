@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 17:07+0000\n"
+"POT-Creation-Date: 2024-01-02 17:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: DjangoUltras/settings.py:122
+msgid "English"
+msgstr "English"
+
+#: DjangoUltras/settings.py:123
+msgid "Russian"
+msgstr "Russian"
 
 #: core/templates/partials/footer.html:178
 msgid "Freebies by"
@@ -61,7 +69,7 @@ msgstr "Login"
 msgid "Home"
 msgstr "Home"
 
-#: core.templates.partials.header.html:50
+#: core/templates/partials/header.html:50
 msgid "About"
 msgstr "About"
 
@@ -73,7 +81,7 @@ msgstr "Shop"
 msgid "Pages"
 msgstr "Pages"
 
-#: core.templates.partials.header.html:57
+#: core/templates/partials/header.html:57
 msgid "Styles"
 msgstr "Styles"
 

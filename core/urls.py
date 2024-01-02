@@ -12,5 +12,4 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
     path('thankyou/', thank_you, name='thank-you'),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
