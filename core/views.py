@@ -35,7 +35,7 @@ def contact(request):
     else:
         form = ContactForm(user=request.user if request.user.is_authenticated else None)
 
-    return render(request, 'contact.html', {'form': form})
+    return render(request, 'contact.html', {'form': form, 'title': 'Contact'})
 
 def shop(request):
     products = Product.objects.all()
@@ -152,6 +152,7 @@ def single_blog(request, slug):
         'blog': blog,
         'comments': comments,
         'form': form,
+        'title': blog.title,
     }
 
     return render(request, 'single-blog.html', context)

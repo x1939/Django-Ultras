@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 17:20+0000\n"
+"POT-Creation-Date: 2024-01-02 18:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,82 +17,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: DjangoUltras/settings.py:122
+#: DjangoUltras/settings.py:123
 msgid "English"
 msgstr "English"
 
-#: DjangoUltras/settings.py:123
+#: DjangoUltras/settings.py:124
 msgid "Russian"
 msgstr "Russian"
 
-#: core/templates/partials/footer.html:178
+#: core/templates/partials/footer.html:175
 msgid "Freebies by"
 msgstr "Freebies by"
 
-#: core/templates/partials/footer.html:178
+#: core/templates/partials/footer.html:175
 msgid "Distributed by"
 msgstr "Distributed by"
 
-#: core/templates/partials/footer.html:178
+#: core/templates/partials/footer.html:175
 msgid "ThemeWagon"
 msgstr "ThemeWagon"
 
-#: core/templates/partials/footer.html:181
+#: core/templates/partials/footer.html:178
 msgid "Payment options"
 msgstr "Payment options"
 
-#: core/templates/partials/footer.html:183
+#: core/templates/partials/footer.html:180
 msgid "visa"
 msgstr "visa"
 
-#: core/templates/partials/footer.html:184
+#: core/templates/partials/footer.html:181
 msgid "mastercard"
 msgstr "mastercard"
 
-#: core/templates/partials/footer.html:185
+#: core/templates/partials/footer.html:182
 msgid "american-express"
 msgstr "american-express"
 
-#: core/templates/partials/header.html:41
+#: core/templates/partials/header.html:60
 msgid "Welcome"
 msgstr "Welcome"
 
-#: core/templates/partials/header.html:43
+#: core/templates/partials/header.html:62
 msgid "Logout"
 msgstr "Logout"
 
-#: core/templates/partials/header.html:45
+#: core/templates/partials/header.html:64
 msgid "Login"
 msgstr "Login"
 
-#: core/templates/partials/header.html:48
+#: core/templates/partials/header.html:67
 msgid "Home"
 msgstr "Home"
 
-#: core/templates/partials/header.html:50
+#: core/templates/partials/header.html:69
 msgid "About"
 msgstr "About"
 
-#: core/templates/partials/header.html:52
+#: core/templates/partials/header.html:71
 msgid "Shop"
 msgstr "Shop"
 
-#: core/templates/partials/header.html:55
+#: core/templates/partials/header.html:74
 msgid "Pages"
 msgstr "Pages"
 
-#: core/templates/partials/header.html:57
+#: core/templates/partials/header.html:76
 msgid "Styles"
 msgstr "Styles"
 
-#: core/templates/partials/header.html:58
+#: core/templates/partials/header.html:77
 msgid "Thankyou"
 msgstr "Thank you"
 
-#: core/templates/partials/header.html:62
+#: core/templates/partials/header.html:81
 msgid "Blog"
 msgstr "Blog"
 
-#: core/templates/partials/header.html:64
+#: core/templates/partials/header.html:83
 msgid "Contact"
 msgstr "Contact"
