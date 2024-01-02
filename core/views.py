@@ -135,9 +135,28 @@ def single_product(request, slug):
 
 
 def single_blog(request, slug):
-    blog = Blog.objects.get(slug=slug)
+    blog = get_object_or_404(Blog, slug=slug)
+    comments = blog.comments.all()
 
-    return render(request, 'single-blog.html', {'blog': blog})
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user  # Assuming you have user authentication
+            comment.blog = blog
+            comment.save()
+            return redirect('single-blog', slug=slug)
+    else:
+        form = CommentForm()
+
+    context = {
+        'blog': blog,
+        'comments': comments,
+        'form': form,
+    }
+
+    return render(request, 'single-blog.html', context)
+
 
 
 
