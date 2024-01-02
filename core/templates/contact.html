@@ -58,13 +58,14 @@
           </div>
           <form method="post" class="contact-form">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form.content.label_tag }}
+            {{ form.content }}
             <label>
-              <input type="checkbox" required>
-              <span class="label-body">I agree to the <a href="#">terms and conditions</a></span>
+                <input type="checkbox" required>
+                <span class="label-body">I agree to the <a href="#">terms and conditions</a></span>
             </label>
             <button type="submit" name="submit" class="btn btn-dark btn-full btn-medium">Submit</button>
-          </form>
+        </form>        
         </div>
       </div>
     </div>

@@ -29,13 +29,12 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST, user=request.user if request.user.is_authenticated else None)
         if form.is_valid():
-            contact_instance = form.save()
-            return redirect('thank-you')
+            form.save()
+            return redirect('thank-you')  # Redirect to a success page or any other page
     else:
         form = ContactForm(user=request.user if request.user.is_authenticated else None)
 
     return render(request, 'contact.html', {'form': form})
-
 
 def shop(request):
     products = Product.objects.all()
@@ -103,7 +102,6 @@ def shop(request):
 
     return render(request, 'shop.html', context)
 
-
 def styles(request):
     context = {
         'title': 'Styles',
@@ -133,7 +131,6 @@ def single_product(request, slug):
     }
     return render(request, 'single-product.html', context)
 
-
 def single_blog(request, slug):
     blog = get_object_or_404(Blog, slug=slug)
     comments = blog.comments.all()
@@ -156,9 +153,6 @@ def single_blog(request, slug):
     }
 
     return render(request, 'single-blog.html', context)
-
-
-
 
 def like_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)

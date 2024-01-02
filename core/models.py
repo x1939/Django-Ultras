@@ -72,15 +72,6 @@ class Product(models.Model):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
-
-class Contact(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField(blank=True, null=True)  # Allow for cases where email might be missing
-    content = models.TextField()
-
-    def __str__(self):
-        return self.name
-
 class Information(models.Model):
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=100, blank=True, null=True)
@@ -96,6 +87,7 @@ class Logo(models.Model):
         return self.title
 
 class Blog(models.Model):
+
     title = models.CharField(max_length=255)
     content = RichTextField()
     image = models.ImageField(upload_to='blog_images/')
@@ -115,7 +107,19 @@ class Blog(models.Model):
             self.created_at = timezone.now()
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-        
+
+class Contact(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
+    name = models.CharField(max_length=100, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    def __str__(self):
+        if self.user:
+            return f"Contact by {self.user.username} - {self.name}"
+        else:
+            return f"Contact - {self.name} (No associated user)"
 class Comment(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
