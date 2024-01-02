@@ -30,4 +30,10 @@ urlpatterns = [
 urlpatterns += i18n_patterns (
     path('', include('core.urls')),
     path('user/', include('user.urls')),
+    path('rosetta/', include('rosetta.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += [
+        path('rosetta/', include('rosetta.urls')),
+    ]
