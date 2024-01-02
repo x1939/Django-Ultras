@@ -3,7 +3,6 @@ from modeltranslation.admin import TranslationAdmin
 from .models import *
 
 admin.site.register(Contact)
-admin.site.register(Brand)
 admin.site.register(Information)
 admin.site.register(Logo)
 admin.site.register(Comment)
@@ -18,4 +17,8 @@ class ProductAdmin(TranslationAdmin):
 
 @admin.register(Blog)
 class BlogAdmin(TranslationAdmin):
+    search_fields = ('title',)
+
+@admin.register(Brand)
+class BrandAdmin(TranslationAdmin):
     search_fields = ('title',)
