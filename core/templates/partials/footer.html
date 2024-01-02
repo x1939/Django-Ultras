@@ -110,13 +110,13 @@
                    <h5 class="widget-title">Ultras</h5>
                    <ul class="menu-list list-unstyled">
                       <li class="menu-item">
-                         <a href="about.html">About us</a>
+                         <a href="{% url 'about' %}">About us</a>
                       </li>
                       <li class="menu-item">
                          <a href="#">Conditions </a>
                       </li>
                       <li class="menu-item">
-                         <a href="blog.html">Our Journals</a>
+                         <a href="{% url 'blog' %}">Our Journals</a>
                       </li>
                       <li class="menu-item">
                          <a href="#">Careers</a>
@@ -135,10 +135,10 @@
                    <h5 class="widget-title">Customer Service</h5>
                    <ul class="menu-list list-unstyled">
                       <li class="menu-item">
-                         <a href="faqs.html">FAQ</a>
+                         <a href="#">FAQ</a>
                       </li>
                       <li class="menu-item">
-                         <a href="contact.html">Contact</a>
+                         <a href="{% url 'contact' %}">Contact</a>
                       </li>
                       <li class="menu-item">
                          <a href="#">Privacy Policy</a>
@@ -172,21 +172,20 @@
  </footer>
  
  <div id="footer-bottom">
-    <div class="container">
+   <div class="container">
        <div class="d-flex align-items-center flex-wrap justify-content-between">
-          <div class="copyright">
-             <p>Freebies by <a href="https://templatesjungle.com/">Templates Jungle</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
-             </p>
-          </div>
-          <div class="payment-method">
-             <p>Payment options :</p>
-             <div class="card-wrap">
-                <img src="{% static 'images/visa-icon.jpg' %}" alt="visa">
-                <img src="{% static 'images/mastercard.png' %}" alt="mastercard">
-                <img src="{% static 'images/american-express.jpg' %}" alt="american-express">
-             </div>
-          </div>
+           <div class="copyright">
+               <p>{% trans 'Freebies by' %} <a href="https://templatesjungle.com/">Templates Jungle</a> {% trans 'Distributed by' %} <a href="https://themewagon.com">{% trans 'ThemeWagon' %}</a></p>
+           </div>
+           <div class="payment-method">
+               <p>{% trans 'Payment options' %} :</p>
+               <div class="card-wrap">
+                   <img src="{% static 'images/visa-icon.jpg' %}" alt="{% trans 'visa' %}">
+                   <img src="{% static 'images/mastercard.png' %}" alt="{% trans 'mastercard' %}">
+                   <img src="{% static 'images/american-express.jpg' %}" alt="{% trans 'american-express' %}">
+               </div>
+           </div>
        </div>
-    </div>
- </div>
+   </div>
+</div>
  <!-- footer end section -->
