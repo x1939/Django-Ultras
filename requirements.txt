@@ -6,10 +6,12 @@ django-ckeditor==6.7.0
 django-js-asset==2.2.0
 django-modeltranslation==0.18.11
 django-rosetta==0.10.0
+djangorestframework==3.14.0
 idna==3.6
 Pillow==10.1.0
 polib==1.2.0
 psycopg2-binary==2.9.9
+pytz==2023.3.post1
 requests==2.31.0
 sqlparse==0.4.4
 typing_extensions==4.9.0
