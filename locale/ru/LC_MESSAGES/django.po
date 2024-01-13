@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-02 18:57+0000\n"
+"POT-Creation-Date: 2024-01-13 11:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,13 +20,43 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: DjangoUltras/settings.py:123
+#: DjangoUltras/settings.py:125
 msgid "English"
 msgstr "Англйский"
 
-#: DjangoUltras/settings.py:124
+#: DjangoUltras/settings.py:126
 msgid "Russian"
 msgstr "Русский"
+
+#: core/templates/home.html:20
+msgid "Summer Collection"
+msgstr ""
+
+#: core/templates/home.html:21
+msgid "This is Summer Collection"
+msgstr ""
+
+#: core/templates/home.html:23 core/templates/home.html:39
+#, fuzzy
+#| msgid "Shop"
+msgid "Shop now"
+msgstr "Магазин"
+
+#: core/templates/home.html:36
+msgid "Winter Collection"
+msgstr ""
+
+#: core/templates/home.html:37
+msgid "This is Winter Collection"
+msgstr ""
+
+#: core/templates/home.html:53
+msgid "Featured Products"
+msgstr ""
+
+#: core/templates/home.html:55
+msgid "View all"
+msgstr ""
 
 #: core/templates/partials/footer.html:175
 msgid "Freebies by"

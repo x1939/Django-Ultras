@@ -25,7 +25,6 @@ def about(request):
     }
     return render(request, 'about.html', context)
 
-@login_required
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST, user=request.user if request.user.is_authenticated else None)

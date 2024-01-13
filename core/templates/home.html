@@ -17,10 +17,10 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-6">
-                        <h2 class="banner-title">Summer Collection</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac.</p>
+                        <h2 class="banner-title">{% trans "Summer Collection" %}</h2>
+                        <p>{% trans "This is Summer Collection" %}</p>
                         <div class="btn-wrap">
-                           <a href="{% url 'shop' %}" class="btn btn-light btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
+                           <a href="{% url 'shop' %}" class="btn btn-light btn-medium d-flex align-items-center" tabindex="0">{% trans "Shop now" %} <i class="icon icon-arrow-io"></i>
                            </a>
                         </div>
                      </div>
@@ -33,10 +33,10 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-6">
-                        <h2 class="banner-title">Casual Collection</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac.</p>
+                        <h2 class="banner-title">{% trans "Winter Collection" %}</h2>
+                        <p>{% trans "This is Winter Collection" %}</p>
                         <div class="btn-wrap">
-                           <a href="{% url 'shop' %}" class="btn btn-light btn-light-arrow btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
+                           <a href="{% url 'shop' %}" class="btn btn-light btn-light-arrow btn-medium d-flex align-items-center" tabindex="0">{% trans "Shop now" %} <i class="icon icon-arrow-io"></i>
                            </a>
                         </div>
                      </div>
@@ -50,9 +50,9 @@
 <section id="featured-products" class="product-store padding-large">
    <div class="container">
       <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
-         <h2 class="section-title">Featured Products</h2>
+         <h2 class="section-title">{% trans "Featured Products" %}</h2>
          <div class="btn-wrap">
-            <a href="{% url 'shop' %}" class="d-flex align-items-center">View all products <i class="icon icon icon-arrow-io"></i></a>
+            <a href="{% url 'shop' %}" class="d-flex align-items-center">{% trans "View all" %} <i class="icon icon icon-arrow-io"></i></a>
          </div>
       </div>
       <div class="swiper product-swiper overflow-hidden">
