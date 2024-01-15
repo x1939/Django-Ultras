@@ -20,3 +20,8 @@ class ProductTranslationOptions(TranslationOptions):
     fields = ('title', 'description')
 
 translator.register(Product, ProductTranslationOptions)
+
+class InformationTranslationOptions(TranslationOptions):
+    fields = ('address', 'about')
+
+translator.register(Information, InformationTranslationOptions)

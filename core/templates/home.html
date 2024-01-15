@@ -117,9 +117,9 @@
                   <img src="{% static 'images/collection-item1.jpg' %}" alt="collection item" class="large-image image-rounded">
                </div>
                <div class="col-lg-6 col-md-6 col-sm-6 product-entry">
-                  <div class="categories">casual collection</div>
-                  <h3 class="item-title">street wear.</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
+                  <div class="categories">{% trans "Street Wear" %}</div>
+                  <h3 class="item-title">{% trans "Basic shoes." %}</h3>
+                  <p>{% trans "This is Street Wear" %}</p>
                   <div class="btn-wrap">
                      <a href="{% url 'shop' %}" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                      </a>
@@ -163,14 +163,14 @@
       <div class="row">
          <div class="block-text col-md-6">
             <div class="section-header">
-               <h2 class="section-title">Get 25% off Discount Coupons</h2>
+               <h2 class="section-title">{% trans "Get 25% off" %}</h2>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst amet, metus, sit massa posuere maecenas. At tellus ut nunc amet vel egestas.</p>
+            <p>{% trans "Get 25% off discount code" %}</p>
          </div>
          <div class="subscribe-content col-md-6">
             <form id="form" class="d-flex justify-content-between">
-               <input type="text" name="email" placeholder="Enter your email addresss here">
-               <button class="btn btn-dark">Subscribe Now</button>
+               <input type="text" name="email" placeholder="{% trans "Enter your email" %}">
+               <button class="btn btn-dark">{% trans "Subscribe" %}</button>
             </form>
          </div>
       </div>
@@ -179,7 +179,7 @@
 <section id="selling-products" class="product-store bg-light-grey padding-large">
    <div class="container">
       <div class="section-header">
-         <h2 class="section-title">Best selling products</h2>
+         <h2 class="section-title">{% trans "Best Selling Products" %}</h2>
       </div>
       <div class="tab-content">
          <div id="all" data-tab-content class="active">
@@ -231,53 +231,11 @@
       </div>
    </div>
 </section>
-<section id="testimonials" class="padding-large no-padding-bottom">
-   <div class="container">
-      <div class="reviews-content">
-         <div class="row d-flex flex-wrap">
-            <div class="col-md-2">
-               <div class="review-icon">
-                  <i class="icon icon-right-quote"></i>
-               </div>
-            </div>
-            <div class="col-md-8">
-               <div class="swiper testimonial-swiper overflow-hidden">
-                  <div class="swiper-wrapper">
-                     <div class="swiper-slide">
-                        <div class="testimonial-detail">
-                           <p>“Dignissim massa diam elementum habitant fames. Id nullam pellentesque nisi, eget cursus dictumst pharetra, sit. Pulvinar laoreet id porttitor egestas dui urna. Porttitor nibh magna dolor ultrices iaculis sit iaculis.”</p>
-                           <div class="author-detail">
-                              <div class="name">By Maggie Rio</div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="swiper-slide">
-                        <div class="testimonial-detail">
-                           <p>“Dignissim massa diam elementum habitant fames. Id nullam pellentesque nisi, eget cursus dictumst pharetra, sit. Pulvinar laoreet id porttitor egestas dui urna. Porttitor nibh magna dolor ultrices iaculis sit iaculis.”</p>
-                           <div class="author-detail">
-                              <div class="name">By John Smith</div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="swiper-arrows">
-                  <button class="prev-button">
-                  <i class="icon icon-arrow-left"></i>
-                  </button>
-                  <button class="next-button">
-                  <i class="icon icon-arrow-right"></i>
-                  </button>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
+
 <section id="flash-sales" class="product-store padding-large">
    <div class="container">
       <div class="section-header">
-         <h2 class="section-title">Flash sales</h2>
+         <h2 class="section-title">{% trans "Flash Sales" %}</h2>
       </div>
       <div class="swiper product-swiper flash-sales overflow-hidden">
          <div class="swiper-wrapper">
@@ -324,6 +282,7 @@
       </div>
    </div>
 </section>
+
 <section class="shoppify-section-banner">
    <div class="container">
       <div class="product-collection">
@@ -332,9 +291,9 @@
                <img src="{% static 'images/model.jpg' %}" alt="collection item" class="large-image image-rounded">
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 product-entry">
-               <div class="categories">Denim collection</div>
-               <h3 class="item-title">The casual selection.</h3>
-               <p>Vel non viverra ligula odio ornare turpis mauris. Odio aliquam, tincidunt ut vitae elit risus. Tempor egestas condimentum et ac rutrum dui, odio.</p>
+               <div class="categories">{% trans "Outers Collection" %}</div>
+               <h3 class="item-title">{% trans "Basic Outers." %}</h3>
+               <p>{% trans "This is Outers Collection" %}</p>
                <div class="btn-wrap">
                   <a href="{% url 'shop' %}" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                   </a>
@@ -346,10 +305,10 @@
 </section>
 <section id="quotation" class="align-center padding-large">
    <div class="inner-content">
-      <h2 class="section-title divider">Quote of the day</h2>
+      <h2 class="section-title divider">{% trans "Quotation" %}</h2>
       <blockquote>
-         <q>It's true, I don't like the whole cutoff-shorts-and-T-shirt look, but I think you can look fantastic in casual clothes.</q>
-         <div class="author-name">- Dr. Seuss</div>
+         <q>{% trans "The greatest glory in living lies not in never falling, but in rising every time we fall." %}</q>
+         <div class="author-name">{% trans "Nelson Mandela" %}</div>
       </blockquote>
    </div>
 </section>
@@ -357,9 +316,9 @@
 <section id="latest-blog" class="padding-large">
    <div class="container">
       <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
-         <h2 class="section-title">our Journal</h2>
+         <h2 class="section-title">{% trans "Latest Blog" %}</h2>
          <div class="btn-wrap align-right">
-            <a href="{% url 'blog' %}" class="d-flex align-items-center">Read All Articles <i class="icon icon icon-arrow-io"></i>
+            <a href="{% url 'blog' %}" class="d-flex align-items-center">{% trans "View All" %} <i class="icon icon icon-arrow-io"></i>
             </a>
          </div>
       </div>
@@ -378,7 +337,7 @@
                </div>
                <div class="post-header">
                   <h3 class="post-title">
-                     <a href="">{{ blog.title }}</a>
+                     <a href="{% url 'single-blog' blog.slug %}">{{ blog.title }}</a>
                   </h3>
                </div>
             </div>

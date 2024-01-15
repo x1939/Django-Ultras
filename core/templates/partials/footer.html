@@ -15,9 +15,9 @@
 <section id="instagram" class="padding-large">
    <div class="container">
       <div class="section-header">
-         <h2 class="section-title">Follow our instagram</h2>
+         <h2 class="section-title">{% trans 'Instagram' %}</h2>
       </div>
-      <p>Our official Instagram account <a href="#">@ultras</a> or <a href="#">#ultras_clothing</a>
+      <p>{% trans 'Follow us on instagram' %} <a href="#">@ultras</a> or <a href="#">#ultras_clothing</a>
       </p>
       <div class="row d-flex flex-wrap justify-content-between">
          <div class="col-lg-2 col-md-4 col-sm-6">
@@ -67,7 +67,7 @@
             <div class="icon-box">
                <i class="icon icon-truck"></i>
                <h4 class="block-title">
-                  <strong>Free shipping</strong> Over $200
+                  <strong>{% trans 'Free shipping' %}</strong> {% trans 'Over $200' %}
                </h4>
             </div>
          </div>
@@ -75,7 +75,7 @@
             <div class="icon-box">
                <i class="icon icon-return"></i>
                <h4 class="block-title">
-                  <strong>Money back</strong> Return within 7 days
+                  <strong>{% trans 'Money back' %}</strong> {% trans 'Return within 7 days' %}
                </h4>
             </div>
          </div>
@@ -83,7 +83,7 @@
             <div class="icon-box">
                <i class="icon icon-tags1"></i>
                <h4 class="block-title">
-                  <strong>Buy 4 get 5th</strong> 50% off
+                  <strong>{% trans 'Buy 4 get 5th' %}</strong> {% trans '50% off' %}
                </h4>
             </div>
          </div>
@@ -91,7 +91,7 @@
             <div class="icon-box">
                <i class="icon icon-help_outline"></i>
                <h4 class="block-title">
-                  <strong>Any questions?</strong> experts are ready
+                  <strong>{% trans 'Need Help?' %}</strong> {% trans 'Call us' %}
                </h4>
             </div>
          </div>
@@ -124,10 +124,10 @@
                   <h5 class="widget-title">Customer Service</h5>
                   <ul class="menu-list list-unstyled">
                      <li class="menu-item">
-                        <a href="{% url 'about' %}">About</a>
+                        <a href="{% url 'about' %}">{% trans 'About' %}</a>
                      </li>
                      <li class="menu-item">
-                        <a href="{% url 'contact' %}">Contact</a>
+                        <a href="{% url 'contact' %}">{% trans 'Contact' %}</a>
                      </li>
                   </ul>
                </div>
@@ -135,9 +135,9 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                <div class="footer-menu">
                   <h5 class="widget-title">Contact Us</h5>
-                  <p>Do you have any questions or suggestions? <a href="#" class="email">{{ information.email }}</a>
+                  <p>{% trans 'Do you need help?' %} <a href="#" class="email">{{ information.email }}</a>
                   </p>
-                  <p>Do you need assistance? Give us a call. <br>
+                  <p>{% trans 'Call us' %} <br>
                      <strong>{{ information.phone }}</strong>
                   </p>
                </div>

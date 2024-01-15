@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% load filters %}
+{% load i18n %}
 <section class="site-banner jarallax min-height300 padding-large" style="background: url({% static 'images/hero-image1.jpg' %}) no-repeat; background-position: top;">
    <div class="container">
       <div class="row">
@@ -9,7 +10,7 @@
             <h1 class="page-title">{{ title }}</h1>
             <div class="breadcrumbs">
                <span class="item">
-               <a href="{% url 'home' %}">Home /</a>
+               <a href="{% url 'home' %}">{% trans 'Home' %} /</a>
                </span>
                <span class="item">{{ title }}</span>
             </div>
@@ -17,6 +18,7 @@
       </div>
    </div>
 </section>
+
 <section id="shipping-information" class="padding-large">
    <div class="container">
       <div class="row d-flex flex-wrap align-items-center justify-content-between">
@@ -24,7 +26,7 @@
             <div class="icon-box">
                <i class="icon icon-truck"></i>
                <h4 class="block-title">
-                  <strong>Free shipping</strong> Over $200
+                  <strong>{% trans 'Free shipping' %}</strong> {% trans 'Over $200' %}
                </h4>
             </div>
          </div>
@@ -32,7 +34,7 @@
             <div class="icon-box">
                <i class="icon icon-return"></i>
                <h4 class="block-title">
-                  <strong>Money back</strong> Return within 7 days
+                  <strong>{% trans 'Money back' %}</strong> {% trans 'Return within 7 days' %}
                </h4>
             </div>
          </div>
@@ -40,7 +42,7 @@
             <div class="icon-box">
                <i class="icon icon-tags1"></i>
                <h4 class="block-title">
-                  <strong>Buy 4 get 5th</strong> 50% off
+                  <strong>{% trans 'Buy 4 get 5th' %}</strong> {% trans '50% off' %}
                </h4>
             </div>
          </div>
@@ -48,13 +50,14 @@
             <div class="icon-box">
                <i class="icon icon-help_outline"></i>
                <h4 class="block-title">
-                  <strong>Any questions?</strong> experts are ready
+                  <strong>{% trans 'Need Help' %}</strong> {% trans 'Call us' %}
                </h4>
             </div>
          </div>
       </div>
    </div>
 </section>
+
 <section id="about-us">
    <div class="container ">
       <div class="row d-flex align-items-center">
@@ -66,13 +69,10 @@
          <div class="col-lg-6 col-md-12">
             <div class="detail">
                <div class="display-header">
-                  <h2 class="section-title">How was Ultras Store started?</h2>
-                  <p>Risus augue curabitur diam senectus congue velit et. Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at. Et libero vulputate amet duis erat volutpat vitae eget. Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at.
-                     <br>
-                     Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at. Et libero vulputate amet duis erat volutpat vitae eget. Quam libero etiam et in ac at quis. Risus augue curabitur diam senectus congue velit et. 
-                  </p>
+                  <h2 class="section-title">{% trans 'How it was created' %}</h2>
+                  <p>{{ information.about|safe }}</p>
                   <div class="btn-wrap">
-                     <a href="shop.html" class="btn btn-dark btn-medium d-flex align-items-center" tabindex="0">Shop our store<i class="icon icon-arrow-io"></i>
+                     <a href="{% url 'shop' %}" class="btn btn-dark btn-medium d-flex align-items-center" tabindex="0">{% trans 'Shop Now' %}<i class="icon icon-arrow-io"></i>
                      </a>
                   </div>
                </div>
@@ -81,49 +81,7 @@
       </div>
    </div>
 </section>
-<section id="testimonials" class="padding-large">
-   <div class="container">
-      <div class="reviews-content">
-         <div class="row d-flex flex-wrap">
-            <div class="col-md-2">
-               <div class="review-icon">
-                  <i class="icon icon-right-quote"></i>
-               </div>
-            </div>
-            <div class="col-md-8">
-               <div class="swiper testimonial-swiper overflow-hidden">
-                  <div class="swiper-wrapper">
-                     <div class="swiper-slide">
-                        <div class="testimonial-detail">
-                           <p>“Dignissim massa diam elementum habitant fames. Id nullam pellentesque nisi, eget cursus dictumst pharetra, sit. Pulvinar laoreet id porttitor egestas dui urna. Porttitor nibh magna dolor ultrices iaculis sit iaculis.”</p>
-                           <div class="author-detail">
-                              <div class="name">By Maggie Rio</div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="swiper-slide">
-                        <div class="testimonial-detail">
-                           <p>“Dignissim massa diam elementum habitant fames. Id nullam pellentesque nisi, eget cursus dictumst pharetra, sit. Pulvinar laoreet id porttitor egestas dui urna. Porttitor nibh magna dolor ultrices iaculis sit iaculis.”</p>
-                           <div class="author-detail">
-                              <div class="name">By John Smith</div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="swiper-arrows">
-                  <button class="prev-button">
-                  <i class="icon icon-arrow-left"></i>
-                  </button>
-                  <button class="next-button">
-                  <i class="icon icon-arrow-right"></i>
-                  </button>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
+
 <hr>
 <section id="latest-blog" class="padding-large">
    <div class="container">

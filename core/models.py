@@ -76,6 +76,7 @@ class Information(models.Model):
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=100, blank=True, null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
+    about = RichTextField(null=True, blank=True)
 
     def __str__(self):
         return self.email
@@ -123,6 +124,7 @@ class Contact(models.Model):
             return f"Contact by {self.user.username} - {self.name}"
         else:
             return f"Contact - {self.name} (No associated user)"
+
 class Comment(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
@@ -131,3 +133,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.user.username} on {self.blog.title}"
+
