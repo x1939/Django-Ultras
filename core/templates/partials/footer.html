@@ -1,6 +1,16 @@
 {% load static %}
 {% load i18n %}
 <!-- footer start section -->
+<style>
+   #basket-button {
+      position: fixed;
+      bottom: 20px; /* Adjust this value to control the vertical position */
+      right: 20px; /* Adjust this value to control the horizontal position */
+      z-index: 999; /* Ensure it's on top of other elements */
+   }
+</style>
+
+<button id="basket-button"><i class="fa fa-shopping-basket" aria-hidden="true"></i></button>
 <section id="brand-collection" class="padding-medium bg-light-grey">
    <div class="container">
       <div class="d-flex flex-wrap justify-content-between">

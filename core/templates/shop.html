@@ -48,7 +48,6 @@
                                  <a href="{% url 'single-product' slug=product.slug %}">
                                  <i class="icon icon-screen-full"></i>
                                  </a>
-                                 <span class="tooltip-text">Quick view</span>
                                  </button>
                                  <form method="post" action="{% url 'like_product' product_id=product.id %}">
                                     {% csrf_token %}
