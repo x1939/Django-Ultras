@@ -1,7 +1,9 @@
+# yourapp/views.py
 from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from .forms import CustomAuthenticationForm, CustomUserCreationForm  # Import the form
+from django.contrib.auth.decorators import login_required
+from .forms import CustomAuthenticationForm, CustomUserCreationForm, UserProfileUpdateForm
+from django.contrib import messages
 
 def register(request):
     if request.method == 'POST':
@@ -10,6 +12,9 @@ def register(request):
             user = form.save()
             login(request, user)
             return redirect('home')  # Change 'home' to your desired URL
+        else:
+            # Form is not valid, display error messages
+            messages.error(request, 'There are errors in the form. Please correct them.')
     else:
         form = CustomUserCreationForm()
 
@@ -29,3 +34,17 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('home')  # Change 'home' to your desired URL
+
+@login_required
+def user_profile(request):
+    # Create a new instance of the UserProfileUpdateForm with the user's data
+    form = UserProfileUpdateForm(instance=request.user)
+
+    if request.method == 'POST':
+        form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully.')
+            return redirect('user-profile')
+
+    return render(request, 'user-profile.html', {'form': form})

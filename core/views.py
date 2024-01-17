@@ -172,3 +172,5 @@ def like_product(request, product_id):
         product.likes.add(request.user)
 
     return redirect('home')
+
+    return render(request, 'user-profile.html')

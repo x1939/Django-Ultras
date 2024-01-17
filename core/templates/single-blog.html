@@ -56,9 +56,9 @@
          <article class="d-flex">
             <!-- Display user image or a default image -->
             {% if comment.user.image %}
-            <img src="{{ comment.user.image.url }}" alt="{{ comment.user.username }}'s image">
+            <img src="{{ comment.user.image.url }}" alt="{{ comment.user.username }}'s image" width="150">
             {% else %}
-            <img src="{% static 'path/to/default-image.jpg' %}" alt="default-image">
+            <img src="{% static 'images/no-image.jpg' %}" alt="default-image" width="150">
             {% endif %}
             <div class="author-post">
                <div class="comment-meta">

@@ -9,38 +9,41 @@
    <div id="header-wrap">
       <nav class="secondary-nav border-bottom">
          <div class="container">
-           <div class="row d-flex align-items-center">
-             <div class="col-md-4 header-contact">
-               <p><strong>{{ information.phone }}</strong>
-               </p>
-             </div>
-             <div class="col-md-4 shipping-purchase text-center">
-               <p>{% trans "Free shipping on orders over $100" %}</p>
-             </div>
-             <div class="col-md-4 col-sm-12 user-items">
-               <ul class="d-flex justify-content-end list-unstyled">
-                 <li>
-                  <form id="languageForm" action="{% url 'set_language' %}" method="post" style="display: block;">
-                     {% csrf_token %}
-                     <input type="hidden" name="next" value="{{ request.path }}">
-                     <select style="width: 50px; height: 30px; border-radius: 15%; border: none; color: rgb(112, 58, 58); font-size: 18px;" name="language" onchange="this.form.submit()">
-                     {% get_current_language as LANGUAGE_CODE %}
-                     {{ LANGUAGE_CODE }}
-                     {% get_available_languages as LANGUAGES %}
-                     {% get_language_info_list for LANGUAGES as languages %}
-                     {% for language in languages %}
-                     <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                     {{ language.code }}
-                     </option>
-                     {% endfor %}
-                     </select>
-                  </form>
-                 </li>
-               </ul>
-             </div>
-           </div>
+            <div class="row d-flex align-items-center">
+               <div class="col-md-4 header-contact">
+                  <p><strong>{{ information.phone }}</strong></p>
+               </div>
+               <div class="col-md-4 shipping-purchase text-center">
+                  {% if user.is_authenticated %}
+                     <h4>{% trans 'Welcome' %}, <a href="{% url 'user-profile' %}">{{ user.username }}</a>!</h4>
+                  {% else %}
+                     <li><a href="{% url 'user_login' %}" class="item-anchor" data-effect="{% trans 'Login' %}">{% trans 'Login' %}</a></li>
+                  {% endif %}
+               </div>
+               <div class="col-md-4 col-sm-12 user-items">
+                  <ul class="d-flex justify-content-end list-unstyled">
+                     <li>
+                        <form id="languageForm" action="{% url 'set_language' %}" method="post" style="display: block;">
+                           {% csrf_token %}
+                           <input type="hidden" name="next" value="{{ request.path }}">
+                           <select style="width: 50px; height: 30px; border-radius: 15%; border: none; color: rgb(112, 58, 58); font-size: 18px;" name="language" onchange="this.form.submit()">
+                           {% get_current_language as LANGUAGE_CODE %}
+                           {{ LANGUAGE_CODE }}
+                           {% get_available_languages as LANGUAGES %}
+                           {% get_language_info_list for LANGUAGES as languages %}
+                           {% for language in languages %}
+                           <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                           {{ language.code }}
+                           </option>
+                           {% endfor %}
+                           </select>
+                        </form>
+                     </li>
+                  </ul>
+               </div>
+            </div>
          </div>
-       </nav>
+      </nav>
       <nav class="primary-nav padding-small">
          <div class="container">
             <div class="row d-flex align-items-center">
@@ -55,14 +58,6 @@
                   <div class="navbar">
                      <div id="main-nav" class="stellarnav d-flex justify-content-end right">
                         <ul class="menu-list">
-                           {% if user.is_authenticated %}
-                           <li>
-                              <h4>{% trans 'Welcome' %}, {{ user.username }}!</h4>
-                           </li>
-                           <li><a href="{% url 'user_logout' %}" class="item-anchor" data-effect="{% trans 'Logout' %}">{% trans 'Logout' %}</a></li>
-                           {% else %}
-                           <li><a href="{% url 'user_login' %}" class="item-anchor" data-effect="{% trans 'Login' %}">{% trans 'Login' %}</a></li>
-                           {% endif %}
                            <li class="menu-item has-sub">
                               <a href="{% url 'home' %}" class="item-anchor d-flex align-item-center" data-effect="{% trans 'Home' %}">{% trans 'Home' %}</a>
                            </li>
