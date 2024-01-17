@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+{% load i18n %}
 <section class="site-banner jarallax min-height300 padding-large" style="background: url({% static 'images/hero-image1.jpg' %}) no-repeat; background-position: top;">
    <div class="container">
       <div class="row">
@@ -8,7 +9,7 @@
             <h1 class="page-title">{{ title }}</h1>
             <div class="breadcrumbs">
                <span class="item">
-               <a href="{% url 'home' %}">Home /</a>
+               <a href="{% url 'home' %}">{% trans 'Home /' %}</a>
                </span>
                <span class="item">{{ title }}</span>
             </div>
@@ -42,17 +43,25 @@
       </div>
       <nav class="navigation paging-navigation text-center padding-medium" role="navigation">
          <div class="pagination loop-pagination d-flex justify-content-center">
-            <a href="#" class="pagination-arrow d-flex align-items-center">
-            <i class="icon icon-arrow-left"></i>
-            </a>
-            <span aria-current="page" class="page-numbers current">1</span>
-            <a class="page-numbers" href="#">2</a>
-            <a class="page-numbers" href="#">3</a>
-            <a href="#" class="pagination-arrow d-flex align-items-center">
-            <i class="icon icon-arrow-right"></i>
-            </a>
+             {% if blogs.has_previous %}
+                 <a href="?page=1" class="pagination-arrow d-flex align-items-center">
+                     <i class="icon icon-arrow-left"></i>
+                 </a>
+             {% endif %}
+             {% for num in blogs.paginator.page_range %}
+                 {% if blogs.number == num %}
+                     <span aria-current="page" class="page-numbers current">{{ num }}</span>
+                 {% else %}
+                     <a class="page-numbers" href="?page={{ num }}">{{ num }}</a>
+                 {% endif %}
+             {% endfor %}
+             {% if blogs.has_next %}
+                 <a href="?page={{ blogs.paginator.num_pages }}" class="pagination-arrow d-flex align-items-center">
+                     <i class="icon icon-arrow-right"></i>
+                 </a>
+             {% endif %}
          </div>
-      </nav>
+     </nav>
    </div>
 </section>
 {% endblock %}

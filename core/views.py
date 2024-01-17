@@ -102,12 +102,6 @@ def shop(request):
 
     return render(request, 'shop.html', context)
 
-def styles(request):
-    context = {
-        'title': 'Styles',
-    }
-    return render(request, 'styles.html', context)
-
 def thank_you(request):
     context = {
         'title': 'Thank You',
@@ -116,6 +110,18 @@ def thank_you(request):
 
 def blog(request):
     blogs = Blog.objects.all()
+
+    # Pagination
+    paginator = Paginator(blogs, 6)  # Show 6 blogs per page
+    page = request.GET.get('page')
+
+    try:
+        blogs = paginator.page(page)
+    except PageNotAnInteger:
+        blogs = paginator.page(1)
+    except EmptyPage:
+        blogs = paginator.page(paginator.num_pages)
+
     context = {
         'title': 'Blog',
         'blogs': blogs,

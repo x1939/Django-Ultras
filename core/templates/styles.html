@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+{% load i18n %}
 <section class="site-banner jarallax min-height300 padding-large" style="background: url({% static 'images/hero-image1.jpg' %}) no-repeat; background-position: top;">
    <div class="container">
       <div class="row">
@@ -8,7 +9,7 @@
             <h1 class="page-title">{{ title }}</h1>
             <div class="breadcrumbs">
                <span class="item">
-               <a href="{% url 'home' %}">Home /</a>
+               <a href="{% url 'home' %}">{% trans 'Home /' %}</a>
                </span>
                <span class="item">{{ title }}</span>
             </div>

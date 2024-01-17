@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-13 13:56+0000\n"
+"POT-Creation-Date: 2024-01-17 17:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,19 +40,19 @@ msgstr "Бесплатная доставка"
 msgid "Over $200"
 msgstr "От $200"
 
-#: core/templates/about.html:37 core.templates/partials/footer.html:78
+#: core/templates/about.html:37 core.templates.partials.footer.html:78
 msgid "Money back"
 msgstr "Возврат денег"
 
-#: core/templates/about.html:37 core.templates/partials/footer.html:78
+#: core/templates/about.html:37 core.templates.partials.footer.html:78
 msgid "Return within 7 days"
 msgstr "Возврат в течение 7 дней"
 
-#: core/templates/about.html:45 core.templates/partials/footer.html:86
+#: core/templates/about.html:45 core.templates.partials.footer.html:86
 msgid "Buy 4 get 5th"
 msgstr "Купи 4, получи 5-й бесплатно"
 
-#: core/templates/about.html:45 core.templates/partials/footer.html:86
+#: core/templates/about.html:45 core.templates.partials.footer.html:86
 #, python-format
 msgid "50%% off"
 msgstr "50%% скидка"
@@ -61,106 +61,147 @@ msgstr "50%% скидка"
 msgid "Need Help"
 msgstr "Нужна помощь"
 
-#: core/templates/about.html:53 core.templates/partials/footer.html:94
-#: core.templates/partials/footer.html:140
+#: core/templates/about.html:53 core.templates.partials.footer.html:94
+#: core.templates.partials.footer.html:140
 msgid "Call us"
 msgstr "Позвоните нам"
 
-#: core/templates/about.html:72
+#: core/templates/about.html:67
 msgid "How it was created"
 msgstr "Как это было создано"
 
-#: core/templates/about.html:75
-#, fuzzy
-#| msgid "Shop"
-msgid "Shop Now"
-msgstr "Магазин"
+#: core/templates/about.html:80
+msgid "Our Journal"
+msgstr "Наш журнал"
 
-#: core/templates/home.html:20
+#: core/templates/blog.html:12 core.templates.contact.html:12
+#: core.templates.shop.html:13 core.templates.single-blog.html:13
+#: core.templates.styles.html:12
+#, fuzzy
+#| msgid "Home"
+msgid "Home /"
+msgstr "Главная"
+
+#: core.templates.contact.html:25 core.templates.thank-you.html:17
+msgid "Contact Information"
+msgstr "Контактная информация"
+
+#: core.templates.contact.html:71 core.templates.contact.html:76
+msgid "Privacy Policy"
+msgstr "Политика конфиденциальности"
+
+#: core.templates.contact.html:80
+msgid "Submit"
+msgstr "Отправить"
+
+#: core.templates.home.html:20
 msgid "Summer Collection"
 msgstr "Летняя коллекция"
 
-#: core/templates/home.html:21
+#: core.templates.home.html:21
 msgid "This is Summer Collection"
 msgstr "Это летняя коллекция"
 
-#: core/templates/home.html:23 core.templates/home.html:39
+#: core.templates.home.html:23 core.templates.home.html:39
 #, fuzzy
 #| msgid "Shop"
 msgid "Shop now"
 msgstr "Магазин"
 
-#: core/templates/home.html:36
+#: core.templates.home.html:36
 msgid "Winter Collection"
 msgstr "Зимняя коллекция"
 
-#: core/templates/home.html:37
+#: core.templates.home.html:37
 msgid "This is Winter Collection"
 msgstr "Это зимняя коллекция"
 
-#: core/templates/home.html:53
+#: core.templates.home.html:53
 msgid "Featured Products"
 msgstr "Популярные товары"
 
-#: core/templates/home.html:55
+#: core.templates.home.html:55
 msgid "View all"
 msgstr "Посмотреть все"
 
-#: core/templates/home.html:120
+#: core.templates.home.html:120
 msgid "Street Wear"
 msgstr "Уличная одежда"
 
-#: core/templates/home.html:121
+#: core.templates.home.html:121
 msgid "Basic shoes."
 msgstr "Базовая обувь."
 
-#: core/templates/home.html:122
+#: core.templates.home.html:122
 msgid "This is Street Wear"
 msgstr "Это уличная одежда"
 
-#: core/templates/home.html:166
+#: core.templates.home.html:124 core.templates.home.html:139
+#: core.templates.home.html:152
+#, fuzzy
+#| msgid "Outers Collection"
+msgid "Коллекция верхней одежды"
+msgstr "Коллекция верхней одежды"
+
+#: core.templates.home.html:136 core.templates.home.html:149
+#, fuzzy
+#| msgid "Winter Collection"
+msgid "Basic Collection"
+msgstr "Зимняя коллекция"
+
+#: core.templates.home.html:137
+#, fuzzy
+#| msgid "Basic shoes."
+msgid "Basic Shoes"
+msgstr "Базовая обувь."
+
+#: core.templates.home.html:150
+msgid "Basic T-Shirt"
+msgstr "Базовая футболка"
+
+#: core.templates.home.html:166
 #, python-format
 msgid "Get 25%% off"
 msgstr "Получите скидку 25%%"
 
-#: core/templates/home.html:168
+#: core.templates.home.html:168
 #, python-format
 msgid "Get 25%% off discount code"
 msgstr "Получите код скидки 25%%"
 
-#: core/templates/home.html:172
+#: core.templates.home.html:172
 msgid "Enter your email"
 msgstr "Введите ваш email"
 
-#: core/templates/home.html:173
+#: core.templates.home.html:173
 msgid "Subscribe"
 msgstr "Подписаться"
 
-#: core/templates/home.html:182
+#: core.templates.home.html:182
 msgid "Best Selling Products"
 msgstr "Лучшие продукты"
 
-#: core/templates/home.html:238
+#: core.templates.home.html:238
 msgid "Flash Sales"
 msgstr "Распродажа"
 
-#: core/templates/home.html:294
+#: core.templates.home.html:294
 msgid "Outers Collection"
 msgstr "Коллекция верхней одежды"
 
-#: core/templates/home.html:295
+#: core.templates.home.html:295
 msgid "Basic Outers."
 msgstr "Базовая верхняя одежда."
 
-#: core/templates/home.html:296
+#: core.templates.home.html:296
 msgid "This is Outers Collection"
 msgstr "Это коллекция верхней одежды"
 
-#: core/templates/home.html:308
+#: core.templates.home.html:308
 msgid "Quotation"
 msgstr "Цитата"
 
-#: core/templates/home.html:310
+#: core.templates.home.html:310
 msgid ""
 "The greatest glory in living lies not in never falling, but in rising every "
 "time we fall."
@@ -168,106 +209,140 @@ msgstr ""
 "Величайшая слава в жизни заключается не в том, чтобы никогда не падать, а в "
 "том, чтобы подниматься каждый раз, когда мы падаем."
 
-#: core/templates/home.html:311
+#: core.templates.home.html:311
 msgid "Nelson Mandela"
 msgstr "Нельсон Мандела"
 
-#: core/templates/home.html:319
+#: core.templates.home.html:319
 msgid "Latest Blog"
 msgstr "Последний блог"
 
-#: core/templates/home.html:321
+#: core.templates.home.html:321
 msgid "View All"
 msgstr "Посмотреть все"
 
-#: core/templates/partials/footer.html:18
+#: core.templates.partials.footer.html:18
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/templates/partials/footer.html:20
-msgid "Follow us on Instagram"
+#: core.templates.partials.footer.html:20
+#, fuzzy
+#| msgid "Follow us on Instagram"
+msgid "Follow us on instagram"
 msgstr "Подпишитесь на нас в Instagram"
 
-#: core/templates/partials/footer.html:94
+#: core.templates.partials.footer.html:94
 msgid "Need Help?"
 msgstr "Нужна помощь?"
 
-#: core/templates/partials/footer.html:127
-#: core.templates/partials/header.html:69
-msgid "About"
+#: core.templates.partials.footer.html:111
+#, fuzzy
+#| msgid "About"
+msgid "About Us"
 msgstr "О нас"
 
-#: core/templates/partials/footer.html:130
-#: core.templates/partials/header.html:83
-msgid "Contact"
-msgstr "Контакты"
+#: core.templates.partials.footer.html:114
+#: core.templates.partials.header.html:74
+msgid "Blog"
+msgstr "Блог"
 
-#: core/templates/partials/footer.html:138
-msgid "Do you need help?"
-msgstr "Вам нужна помощь?"
-
-#: core/templates/partials/footer.html:154
-msgid "Freebies by"
-msgstr "Подарки от"
-
-#: core/templates/partials/footer.html:154
-msgid "Distributed by"
-msgstr "Распространяется"
-
-#: core/templates/partials/footer.html:154
-msgid "ThemeWagon"
-msgstr "ThemeWagon"
-
-#: core/templates/partials/footer.html:157
-msgid "Payment options"
-msgstr "Варианты оплаты"
-
-#: core/templates/partials/footer.html:159
-msgid "Visa"
-msgstr "Visa"
-
-#: core/templates/partials/footer.html:160
-msgid "Mastercard"
-msgstr "Mastercard"
-
-#: core/templates/partials/footer.html:161
-msgid "American Express"
-msgstr "American Express"
-
-#: core/templates/partials/header.html:18
-msgid "Free shipping on orders over $100"
-msgstr "Бесплатная доставка при заказе от $100"
-
-#: core/templates/partials/header.html:60
-msgid "Welcome"
-msgstr "Добро пожаловать"
-
-#: core/templates/partials/header.html:62
-msgid "Logout"
-msgstr "Выйти"
-
-#: core/templates/partials/header.html:64
-msgid "Login"
-msgstr "Войти"
-
-#: core/templates/partials/header.html:71
+#: core.templates.partials.footer.html:117
+#: core.templates.partials.header.html:71
 msgid "Shop"
 msgstr "Магазин"
 
-#: core/templates/partials/header.html:74
-msgid "Pages"
-msgstr "Страницы"
+#: core.templates.partials.footer.html:124
+#, fuzzy
+#| msgid "Quotation"
+msgid "Information"
+msgstr "Цитата"
 
-#: core/templates/partials/header.html:76
-msgid "Styles"
-msgstr "Стили"
+#: core.templates.partials.footer.html:127
+#: core.templates.partials.header.html:69
+msgid "About"
+msgstr "О нас"
 
-#: core/templates/partials/header.html:77
+#: core.templates.partials.footer.html:130
+#: core.templates.partials.header.html:76
+msgid "Contact"
+msgstr "Контакты"
+
+#: core.templates.partials.footer.html:137
+#, fuzzy
+#| msgid "Need Help"
+msgid "Help"
+msgstr "Нужна помощь"
+
+#: core.templates.partials.footer.html:138
+msgid "Do you need help?"
+msgstr "Вам нужна помощь?"
+
+#: core.templates.partials.footer.html:154
+msgid "Freebies by"
+msgstr "Подарки от"
+
+#: core.templates.partials.footer.html:154
+msgid "Distributed by"
+msgstr "Распространяется"
+
+#: core.templates.partials.footer.html:154
+msgid "ThemeWagon"
+msgstr "ThemeWagon"
+
+#: core.templates.partials.footer.html:157
+msgid "Payment options"
+msgstr "Варианты оплаты"
+
+#: core.templates.partials.footer.html:159
+msgid "visa"
+msgstr "Visa"
+
+#: core.templates.partials.footer.html:160
+#, fuzzy
+#| msgid "Mastercard"
+msgid "mastercard"
+msgstr "Mastercard"
+
+#: core.templates.partials.footer.html:161
+#, fuzzy
+#| msgid "American Express"
+msgid "american-express"
+msgstr "American Express"
+
+#: core.templates.partials.header.html:18
+msgid "Free shipping on orders over $100"
+msgstr "Бесплатная доставка при заказе от $100"
+
+#: core.templates.partials.header.html:60
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
+#: core.templates.partials.header.html:62
+msgid "Logout"
+msgstr "Выйти"
+
+#: core.templates.partials.header.html:64
+msgid "Login"
+msgstr "Войти"
+
+#: core.templates.thank-you.html:10
 #, fuzzy
 #| msgid "Thank you"
-msgid "Thankyou"
+msgid "Thank You!"
 msgstr "Спасибо"
 
-#: core/templates/partials/header.html:81
-msgid "Blog"
-msgstr "Блог"
+#: core.templates.thank-you.html:11
+msgid "We will get in touch with you shortly."
+msgstr "Мы свяжемся с вами в ближайшее время."
+
+#: core.templates.thank-you.html:23
+msgid "Phone"
+msgstr "Телефон"
+
+#: core.templates.thank-you.html:33
+msgid "Email"
+msgstr "Email"
+
+#: core.templates.thank-you.html:44
+msgid "Address"
+msgstr "Адрес"
