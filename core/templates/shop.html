@@ -43,7 +43,12 @@
                            </div>
                            <div class="cart-concern">
                               <div class="cart-button d-flex justify-content-between align-items-center">
-                                 <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i></button>
+                                 <form method="post" action="{% url 'add_to_basket' product.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn-wrap cart-link d-flex align-items-center">
+                                        add to cart <i class="icon icon-arrow-io"></i>
+                                    </button>
+                                </form>
                                  <button type="button" class="view-btn tooltip d-flex">
                                  <a href="{% url 'single-product' slug=product.slug %}">
                                  <i class="icon icon-screen-full"></i>
@@ -174,4 +179,5 @@
       </div>
    </div>
 </section>
+
 {% endblock %}

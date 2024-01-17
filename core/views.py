@@ -2,9 +2,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from decimal import Decimal
 from .models import *
 from .forms import *
-
 
 def home(request):
     products = Product.objects.all()
@@ -173,4 +176,25 @@ def like_product(request, product_id):
 
     return redirect('home')
 
-    return render(request, 'user-profile.html')
+@login_required
+def add_to_basket(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+
+    # Assuming the user is authenticated
+    user = request.user
+    if user.is_authenticated:
+        # Increment the quantity in the basket
+        product.in_basket_quantity += 1
+        product.save()
+
+        # Store the product details in the user's session
+        basket = request.session.setdefault('basket', [])
+        basket.append({
+            'id': product.id,
+            'title': product.title,
+        })
+        request.session.modified = True
+
+    # Redirect to the home page or the previous page
+    referer = request.META.get('HTTP_REFERER', reverse('home'))
+    return HttpResponseRedirect(referer)

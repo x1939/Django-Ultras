@@ -47,6 +47,7 @@ class Product(models.Model):
     likes = models.ManyToManyField(CustomUser, related_name='liked_products', blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+    in_basket_quantity = models.PositiveIntegerField(default=0)
 
     objects = ProductManager()
 
