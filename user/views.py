@@ -1,9 +1,11 @@
 # yourapp/views.py
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, update_session_auth_hash
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 from .forms import CustomAuthenticationForm, CustomUserCreationForm, UserProfileUpdateForm
-from django.contrib import messages
+
 
 def register(request):
     if request.method == 'POST':
@@ -42,9 +44,25 @@ def user_profile(request):
 
     if request.method == 'POST':
         form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user)
+        old_password = request.POST.get('old_password')
+        new_password = request.POST.get('new_password')
+
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully.')
+
+            if old_password and new_password:
+                # Manually change the password
+                user = request.user
+                if user.check_password(old_password):
+                    user.set_password(new_password)
+                    user.save()
+                    update_session_auth_hash(request, user)  # Important for security
+                    messages.success(request, 'Profile and password updated successfully.')
+                else:
+                    messages.error(request, 'Incorrect old password. Password not changed.')
+            else:
+                messages.success(request, 'Profile updated successfully.')
+
             return redirect('user-profile')
 
     return render(request, 'user-profile.html', {'form': form})

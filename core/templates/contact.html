@@ -58,27 +58,23 @@
                   {% csrf_token %}
                   {{ form.name.label_tag }}
                   {{ form.name }}
-                  
                   {{ form.email.label_tag }}
                   {{ form.email }}
-                  
                   {{ form.content.label_tag }}
                   {{ form.content }}
-                  
                   {% if not user %}
-                      <label>
-                          <input type="checkbox" required>
-                          <span class="label-body">I agree to the <a href="#">{% trans 'Privacy Policy' %}</a></span>
-                      </label>
+                  <label>
+                  <input type="checkbox" required>
+                  <span class="label-body">I agree to the <a href="#">{% trans 'Privacy Policy' %}</a></span>
+                  </label>
                   {% else %}
-                      <label>
-                          <input type="checkbox" required>
-                          <span class="label-body">I agree to the <a href="#">{% trans 'Privacy Policy' %}</a></span>
-                      </label>
+                  <label>
+                  <input type="checkbox" required>
+                  <span class="label-body">I agree to the <a href="#">{% trans 'Privacy Policy' %}</a></span>
+                  </label>
                   {% endif %}
-                  
                   <button type="submit" name="submit" class="btn btn-dark btn-full btn-medium">{% trans 'Submit' %}</button>
-              </form>     
+               </form>
             </div>
          </div>
       </div>

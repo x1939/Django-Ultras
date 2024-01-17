@@ -23,9 +23,15 @@ class CustomUserCreationForm(UserCreationForm):
                 del self.fields[field_name]
 
 class UserProfileUpdateForm(forms.ModelForm):
+    old_password = forms.CharField(widget=forms.PasswordInput, required=False)
+    new_password = forms.CharField(widget=forms.PasswordInput, required=False)
+
     class Meta:
         model = CustomUser
         fields = ['username', 'email', 'image']
-        widgets = {
-            'image': ClearableFileInput,
-        }
+
+    def clean_old_password(self):
+        old_password = self.cleaned_data.get("old_password")
+        if old_password and not self.instance.check_password(old_password):
+            raise forms.ValidationError("Incorrect old password.")
+        return old_password
