@@ -9,5 +9,5 @@ Requirements:
 
 Project was created by "x1939".
 
-Projects front-end link: http://127.0.0.1:8000/
-Projects GitHub link: http://127.0.0.1:8000/
+Projects front-end link: https://github.com/themewagon/ultras/archive/refs/tags/v1.0.0.zip
+Projects GitHub link: https://github.com/x1939/DjanguUltras
