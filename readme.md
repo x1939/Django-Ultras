@@ -7,7 +7,7 @@ Requirements:
 6) create super user: ./manage.py createsuperuser
 5) Go to http://127.0.0.1:8000/ to see site
 
-Project was created by "x1939".
+Links:
 
-Projects front-end link: https://github.com/themewagon/ultras/archive/refs/tags/v1.0.0.zip
-Projects GitHub link: https://github.com/x1939/DjanguUltras
+1) Projects front-end link: https://github.com/themewagon/ultras/archive/refs/tags/v1.0.0.zip
+2) Projects GitHub link: https://github.com/x1939/DjanguUltras
