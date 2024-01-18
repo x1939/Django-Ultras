@@ -11,3 +11,5 @@ Links:
 
 1) Projects front-end link: https://github.com/themewagon/ultras/archive/refs/tags/v1.0.0.zip
 2) Projects GitHub link: https://github.com/x1939/DjanguUltras
+
+Project was created by "x1939".
