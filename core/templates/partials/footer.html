@@ -51,7 +51,7 @@
        <span class="close-button" onclick="closeModal()">&times;</span>
 
        <!-- Basket content goes here -->
-       <h2>Your Basket</h2><hr>
+       <h2>{% trans 'Basket' %}</h2><hr>
        {% for product_id in request.session.basket %}
                     {% with product=product_id %}
                         <div class="basket-item">

@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-17 17:02+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-01-19 14:01+0000\n"
+"PO-Revision-Date: 2024-01-19 14:05+0000\n"
+"Last-Translator:   <admin245@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: English\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: DjangoUltras/settings.py:125
 msgid "English"
@@ -25,55 +26,54 @@ msgstr "English"
 msgid "Russian"
 msgstr "Russian"
 
-#: core/templates/about.html:13 core/templates/partials/header.html:67
+#: core/templates/about.html:13 core/templates/partials/header.html:62
 msgid "Home"
 msgstr "Home"
 
-#: core/templates/about.html:29 core/templates/partials/footer.html:70
+#: core/templates/about.html:28 core/templates/partials/footer.html:132
 msgid "Free shipping"
 msgstr "Free shipping"
 
-#: core/templates/about.html:29 core/templates/partials/footer.html:70
+#: core/templates/about.html:28 core/templates/partials/footer.html:132
 msgid "Over $200"
 msgstr "Over $200"
 
-#: core/templates/about.html:37 core/templates/partials/footer.html:78
+#: core/templates/about.html:36 core/templates/partials/footer.html:140
 msgid "Money back"
 msgstr "Money back"
 
-#: core/templates/about.html:37 core/templates/partials/footer.html:78
+#: core/templates/about.html:36 core/templates/partials/footer.html:140
 msgid "Return within 7 days"
 msgstr "Return within 7 days"
 
-#: core/templates/about.html:45 core/templates/partials/footer.html:86
+#: core/templates/about.html:44 core/templates/partials/footer.html:148
 msgid "Buy 4 get 5th"
 msgstr "Buy 4 get 5th"
 
-#: core/templates/about.html:45 core/templates/partials/footer.html:86
+#: core/templates/about.html:44 core/templates/partials/footer.html:148
 #, python-format
 msgid "50%% off"
 msgstr "50%% off"
 
-#: core/templates/about.html:53
+#: core/templates/about.html:52
 msgid "Need Help"
 msgstr "Need Help"
 
-#: core/templates/about.html:53 core/templates/partials/footer.html:94
-#: core/templates/partials/footer.html:140
+#: core/templates/about.html:52 core/templates/partials/footer.html:156
+#: core/templates/partials/footer.html:202
 msgid "Call us"
 msgstr "Call us"
 
-#: core/templates/about.html:67
+#: core/templates/about.html:65
 msgid "How it was created"
 msgstr "How it was created"
 
-#: core/templates/about.html:80
+#: core/templates/about.html:77
 msgid "Our Journal"
 msgstr "Our Journal"
 
 #: core/templates/blog.html:12 core/templates/contact.html:12
 #: core/templates/shop.html:13 core/templates/single-blog.html:13
-#: core/templates/styles.html:12
 #, fuzzy
 #| msgid "Home"
 msgid "Home /"
@@ -83,11 +83,11 @@ msgstr "Home"
 msgid "Contact Information"
 msgstr "Contact Information"
 
-#: core/templates/contact.html:71 core/templates/contact.html:76
+#: core/templates/contact.html:68 core/templates/contact.html:73
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: core/templates/contact.html:80
+#: core/templates/contact.html:76
 msgid "Submit"
 msgstr "Submit"
 
@@ -95,7 +95,7 @@ msgstr "Submit"
 msgid "Summer Collection"
 msgstr "Summer Collection"
 
-#: core.templates.home.html:21
+#: core/templates/home.html:21
 msgid "This is Summer Collection"
 msgstr "This is Summer Collection"
 
@@ -121,84 +121,84 @@ msgstr "Featured Products"
 msgid "View all"
 msgstr "View all"
 
-#: core/templates/home.html:120
+#: core/templates/home.html:119
 msgid "Street Wear"
 msgstr "Street Wear"
 
-#: core/templates/home.html:121
+#: core/templates/home.html:120
 msgid "Basic shoes."
 msgstr "Basic shoes."
 
-#: core/templates/home.html:122
+#: core/templates/home.html:121
 msgid "This is Street Wear"
 msgstr "This is Street Wear"
 
-#: core/templates/home.html:124 core/templates/home.html:139
-#: core/templates/home.html:152
+#: core/templates/home.html:123 core/templates/home.html:138
+#: core/templates/home.html:151
 #, fuzzy
 #| msgid "Outers Collection"
 msgid "shop collection"
 msgstr "Outers Collection"
 
-#: core/templates/home.html:136 core/templates/home.html:149
+#: core/templates/home.html:135 core/templates/home.html:148
 #, fuzzy
 #| msgid "Winter Collection"
 msgid "Basic Collection"
 msgstr "Winter Collection"
 
-#: core/templates/home.html:137
+#: core/templates/home.html:136
 #, fuzzy
 #| msgid "Basic shoes."
 msgid "Basic Shoes"
 msgstr "Basic shoes."
 
-#: core/templates/home.html:150
+#: core/templates/home.html:149
 msgid "Basic T-Shirt"
 msgstr "Basic T-Shirt"
 
-#: core/templates/home.html:166
+#: core/templates/home.html:165
 #, python-format
 msgid "Get 25%% off"
-msgstr "Get 25%% off"
+msgstr "Get 25% off"
 
-#: core/templates/home.html:168
+#: core/templates/home.html:167
 #, python-format
 msgid "Get 25%% off discount code"
-msgstr "Get 25%% off discount code"
+msgstr "Get 25% off discount code"
 
-#: core/templates/home.html:172
+#: core/templates/home.html:171
 msgid "Enter your email"
 msgstr "Enter your email"
 
-#: core/templates/home.html:173
+#: core/templates/home.html:172
 msgid "Subscribe"
 msgstr "Subscribe"
 
-#: core/templates/home.html:182
+#: core/templates/home.html:181
 msgid "Best Selling Products"
 msgstr "Best Selling Products"
 
-#: core/templates/home.html:238
+#: core/templates/home.html:235
 msgid "Flash Sales"
 msgstr "Flash Sales"
 
-#: core/templates/home.html:294
+#: core/templates/home.html:289
 msgid "Outers Collection"
 msgstr "Outers Collection"
 
-#: core/templates/home.html:295
+#: core/templates/home.html:290
 msgid "Basic Outers."
 msgstr "Basic Outers."
 
-#: core/templates/home.html:296
+#: core/templates/home.html:291
 msgid "This is Outers Collection"
 msgstr "This is Outers Collection"
 
-#: core/templates/home.html:308
+#: core/templates/home.html:303
 msgid "Quotation"
 msgstr "Quotation"
 
-#: core/templates/home.html:310
+#: core/templates/home.html:305
 msgid ""
 "The greatest glory in living lies not in never falling, but in rising every "
 "time we fall."
@@ -206,119 +206,115 @@ msgstr ""
 "The greatest glory in living lies not in never falling, but in rising every "
 "time we fall."
 
-#: core/templates/home.html:311
+#: core/templates/home.html:306
 msgid "Nelson Mandela"
 msgstr "Nelson Mandela"
 
-#: core/templates/home.html:319
+#: core/templates/home.html:314
 msgid "Latest Blog"
 msgstr "Latest Blog"
 
-#: core/templates/home.html:321
+#: core/templates/home.html:316
 msgid "View All"
 msgstr "View All"
 
-#: core/templates/partials/footer.html:18
+#: core/templates/partials/footer.html:54
+msgid "Basket"
+msgstr "Basket"
+
+#: core/templates/partials/footer.html:80
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/templates/partials/footer.html:20
+#: core/templates/partials/footer.html:82
 #, fuzzy
 #| msgid "Follow us on Instagram"
 msgid "Follow us on instagram"
 msgstr "Follow us on Instagram"
 
-#: core/templates/partials/footer.html:94
+#: core/templates/partials/footer.html:156
 msgid "Need Help?"
 msgstr "Need Help?"
 
-#: core/templates/partials/footer.html:111
+#: core/templates/partials/footer.html:173
 #, fuzzy
 #| msgid "About"
 msgid "About Us"
 msgstr "About"
 
-#: core/templates/partials/footer.html:114
-#: core/templates/partials/header.html:74
+#: core/templates/partials/footer.html:176
+#: core/templates/partials/header.html:69
 msgid "Blog"
 msgstr "Blog"
 
-#: core/templates/partials/footer.html:117
-#: core.templates.partials.header.html:71
+#: core/templates/partials/footer.html:179
+#: core/templates/partials/header.html:66
 msgid "Shop"
 msgstr "Shop"
 
-#: core/templates/partials/footer.html:124
+#: core/templates/partials/footer.html:186
 #, fuzzy
 #| msgid "Quotation"
 msgid "Information"
 msgstr "Quotation"
 
-#: core/templates/partials/footer.html:127
-#: core.templates.partials.header.html:69
+#: core/templates/partials/footer.html:189
+#: core/templates/partials/header.html:64
 msgid "About"
 msgstr "About"
 
-#: core/templates/partials/footer.html:130
-#: core.templates.partials.header.html:76
+#: core/templates/partials/footer.html:192
+#: core/templates/partials/header.html:71
 msgid "Contact"
 msgstr "Contact"
 
-#: core/templates/partials/footer.html:137
+#: core/templates/partials/footer.html:199
 #, fuzzy
 #| msgid "Need Help"
 msgid "Help"
 msgstr "Need Help"
 
-#: core/templates/partials/footer.html:138
+#: core/templates/partials/footer.html:200
 msgid "Do you need help?"
 msgstr "Do you need help?"
 
-#: core/templates/partials/footer.html:154
+#: core/templates/partials/footer.html:216
 msgid "Freebies by"
 msgstr "Freebies by"
 
-#: core/templates/partials/footer.html:154
+#: core/templates/partials/footer.html:216
 msgid "Distributed by"
 msgstr "Distributed by"
 
-#: core/templates/partials/footer.html:154
+#: core/templates/partials/footer.html:216
 msgid "ThemeWagon"
 msgstr "ThemeWagon"
 
-#: core/templates/partials/footer.html:157
+#: core/templates/partials/footer.html:219
 msgid "Payment options"
 msgstr "Payment options"
 
-#: core/templates/partials/footer.html:159
+#: core/templates/partials/footer.html:221
 msgid "visa"
 msgstr "Visa"
 
-#: core/templates/partials/footer.html:160
+#: core/templates/partials/footer.html:222
 #, fuzzy
 #| msgid "Mastercard"
 msgid "mastercard"
 msgstr "Mastercard"
 
-#: core/templates/partials/footer.html:161
+#: core/templates/partials/footer.html:223
 #, fuzzy
 #| msgid "American Express"
 msgid "american-express"
 msgstr "American Express"
 
 #: core/templates/partials/header.html:18
-msgid "Free shipping on orders over $100"
-msgstr "Free shipping on orders over $100"
-
-#: core/templates/partials/header.html:60
 msgid "Welcome"
 msgstr "Welcome"
 
-#: core/templates/partials/header.html:62
-msgid "Logout"
-msgstr "Logout"
-
-#: core/templates/partials/header.html:64
+#: core/templates/partials/header.html:20
 msgid "Login"
 msgstr "Login"
 
@@ -343,3 +339,28 @@ msgstr "Email"
 #: core/templates/thank-you.html:44
 msgid "Address"
 msgstr "Address"
+
+#: user/templates/user-profile.html:93
+#, fuzzy
+#| msgid "Quotation"
+msgid "Welcome, Your Information"
+msgstr "Quotation"
+
+#: user/templates/user-profile.html:120
+msgid "Profile Image"
+msgstr "Profile Image"
+
+#: user/templates/user-profile.html:127
+msgid "Save Changes"
+msgstr "Save Changes"
+
+#: user/templates/user-profile.html:132
+msgid "Logout"
+msgstr "Logout"
+
+#: user/templates/user-profile.html:134
+msgid "Please log in to view your profile."
+msgstr "Please log in to view your profile."
+
+#~ msgid "Free shipping on orders over $100"
+#~ msgstr "Free shipping on orders over $100"

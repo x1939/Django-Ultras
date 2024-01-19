@@ -80,7 +80,7 @@ def shop(request):
         products = products.filter(Q(title__icontains=search_query))
 
     # Pagination
-    paginator = Paginator(products, 8)  # Show 10 products per page
+    paginator = Paginator(products, 6)
     page = request.GET.get('page')
 
     try:
