@@ -37,7 +37,7 @@ class ProductManager(models.Manager):
         return products
 
 class Product(models.Model):
-    image = models.ImageField(upload_to='products/')
+    image = models.ImageField(upload_to='products/') 
     title = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, null=True, blank=True)

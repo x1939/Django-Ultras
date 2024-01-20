@@ -48,11 +48,10 @@ def user_profile(request):
         new_password = request.POST.get('new_password')
 
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)  # Don't save the form to the database yet
 
             if old_password and new_password:
                 # Manually change the password
-                user = request.user
                 if user.check_password(old_password):
                     user.set_password(new_password)
                     user.save()
@@ -61,6 +60,7 @@ def user_profile(request):
                 else:
                     messages.error(request, 'Incorrect old password. Password not changed.')
             else:
+                form.save()
                 messages.success(request, 'Profile updated successfully.')
 
             return redirect('user-profile')
