@@ -63,21 +63,27 @@ class Product(models.Model):
         discount_amount = (self.discount / 100) * self.price
         discounted_price = self.price - discount_amount
         return round(discounted_price, 2)
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            unique_slug = base_slug
+            counter = 1
+
+            while Product.objects.filter(slug=unique_slug).exists():
+                unique_slug = f"{base_slug}-{counter}"
+                counter += 1
+
+            self.slug = unique_slug
+
+        if not self.slug:  # Add this check to make sure the slug is not empty
+            self.slug = slugify(self.title)  # Set a default slug if still empty
+
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
     
-    def save(self, *args, **kwargs):
-        # Ensure that the title is non-empty before generating the slug
-        if not self.title:
-            raise ValueError("Product title cannot be empty.")
-        
-        # Auto-generate slug from the title if it's not already set
-        if not self.slug:
-            self.slug = slugify(self.title)
-        
-        super().save(*args, **kwargs)
-
 class Information(models.Model):
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=100, blank=True, null=True)
@@ -103,15 +109,21 @@ class Blog(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        # Ensure that the title is non-empty before generating the slug
-        if not self.title:
-            raise ValueError("Blog title cannot be empty.")
-        
-        # Auto-generate slug from the title if it's not already set
         if not self.slug:
-            self.slug = slugify(self.title)
-        
-        super().save(*args, **kwargs) 
+            base_slug = slugify(self.title)
+            unique_slug = base_slug
+            counter = 1
+
+            while Blog.objects.filter(slug=unique_slug).exists():
+                unique_slug = f"{base_slug}-{counter}"
+                counter += 1
+
+            self.slug = unique_slug
+
+        if not self.slug:  # Add this check to make sure the slug is not empty
+            self.slug = slugify(self.title)  # Set a default slug if still empty
+
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
