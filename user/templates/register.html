@@ -1,103 +1,140 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Register</title>
-      <style>
-         form {
-         background-color: #fff;
-         padding: 20px;
-         border-radius: 8px;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-         }
-         h2 {
-         text-align: center;
-         color: #333;
-         }
-         label {
-         display: block;
-         margin-bottom: 8px;
-         color: #555;
-         text-align: center; /* Center the label text */
-         }
-         input {
-         width: 100%;
-         padding: 8px;
-         margin-bottom: 16px;
-         box-sizing: border-box;
-         border: 1px solid #ccc;
-         border-radius: 4px;
-         }
-         input[type="submit"] {
-         background-color: #4CAF50;
-         color: #fff;
-         padding: 10px 15px;
-         border: none;
-         border-radius: 4px;
-         cursor: pointer;
-         font-size: 16px;
-         display: block;
-         margin: 0 auto; /* Center the button */
-         }
-         input[type="submit"]:hover {
-         background-color: #45a049;
-         }
-         p {
-         margin-top: 16px;
-         text-align: center;
-         }
-         a {
-         color: #4CAF50;
-         }
-         .error-message {
-         color: red;
-         text-align: center;
-         margin-bottom: 8px;
-         }
-      </style>
-   </head>
-   <body>
-      <h2>Register</h2>
-      <form method="post" enctype="multipart/form-data" novalidate>
-         {% csrf_token %}
-         {% if form.errors %}
-         <div class="error-message">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans 'Register' %}</title>
+
+    <!-- Include FontAwesome CSS for the eye icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        p {
+            margin-top: 16px;
+            text-align: center;
+        }
+        a {
+            color: #4CAF50;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        /* Eye icon styles */
+        .password-container {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Register</h2>
+    <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {% if form.errors %}
+        <div class="error-message">
             <p>{{ form.non_field_errors.as_text }}</p>
-         </div>
-         {% endif %}
-         {{ form.username.label_tag }} {{ form.username }}
-         {% if form.username.errors %}
-         <div class="error-message">
+        </div>
+        {% endif %}
+        {{ form.username.label_tag }} {{ form.username }}
+        {% if form.username.errors %}
+        <div class="error-message">
             <p>{{ form.username.errors.as_text }}</p>
-         </div>
-         {% endif %}
-         {{ form.email.label_tag }} {{ form.email }}
-         {% if form.email.errors %}
-         <div class="error-message">
+        </div>
+        {% endif %}
+        {{ form.email.label_tag }} {{ form.email }}
+        {% if form.email.errors %}
+        <div class="error-message">
             <p>{{ form.email.errors.as_text }}</p>
-         </div>
-         {% endif %}
-         {{ form.image.label_tag }} {{ form.image }}
-         {% if form.image.errors %}
-         <div class="error-message">
+        </div>
+        {% endif %}
+        {{ form.image.label_tag }} {{ form.image }}
+        {% if form.image.errors %}
+        <div class="error-message">
             <p>{{ form.image.errors.as_text }}</p>
-         </div>
-         {% endif %}
-         {{ form.password1.label_tag }} {{ form.password1 }}
-         {% if form.password1.errors %}
-         <div class="error-message">
+        </div>
+        {% endif %}
+        {{ form.password1.label_tag }}
+        <div class="password-container">
+            {{ form.password1 }}
+            <span class="password-toggle" onclick="togglePassword('id_password1')">
+                <i class="fas fa-eye"></i>
+            </span>
+        </div>
+        {% if form.password1.errors %}
+        <div class="error-message">
             <p>{{ form.password1.errors.as_text }}</p>
-         </div>
-         {% endif %}
-         {{ form.password2.label_tag }} {{ form.password2 }}
-         {% if form.password2.errors %}
-         <div class="error-message">      
+        </div>
+        {% endif %}
+        {{ form.password2.label_tag }}
+        <div class="password-container">
+            {{ form.password2 }}
+            <span class="password-toggle" onclick="togglePassword('id_password2')">
+                <i class="fas fa-eye"></i>
+            </span>
+        </div>
+        {% if form.password2.errors %}
+        <div class="error-message">
             <p>{{ form.password2.errors.as_text }}</p>
-         </div>
-         {% endif %}
-         <input type="submit" value="Save">
-      </form>
-      <p>Already have an account? <a href="{% url 'user_login' %}">Login here</a></p>
-   </body>
+        </div>
+        {% endif %}
+        <input type="submit" value="Save">
+    </form>
+    <p>{% trans 'Already have an account?' %} <a href="{% url 'user_login' %}">{% trans 'Login here' %}</a></p>
+
+    <script>
+        function togglePassword(passwordId) {
+            var passwordInput = document.getElementById(passwordId);
+            var type = passwordInput.type === "password" ? "text" : "password";
+            passwordInput.type = type;
+        }
+    </script>
+</body>
 </html>

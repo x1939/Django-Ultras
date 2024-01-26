@@ -17,7 +17,7 @@ class BrandTranslationOptions(TranslationOptions):
 translator.register(Brand, BrandTranslationOptions)
 
 class ProductTranslationOptions(TranslationOptions):
-    fields = ('title', 'description')
+    fields = ('description', 'title')
 
 translator.register(Product, ProductTranslationOptions)
 

@@ -8,285 +8,265 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-19 14:01+0000\n"
+"POT-Creation-Date: 2024-01-26 17:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ru\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: DjangoUltras/settings.py:125
 msgid "English"
-msgstr "Английский"
+msgstr "İngilis"
 
 #: DjangoUltras/settings.py:126
-msgid "Russian"
-msgstr "Русский"
+msgid "Azerbaijani"
+msgstr "Azərbaycan"
 
 #: core/templates/about.html:13 core/templates/partials/header.html:62
 msgid "Home"
-msgstr "Главная"
+msgstr "Əsas"
 
 #: core/templates/about.html:28 core/templates/partials/footer.html:132
 msgid "Free shipping"
-msgstr "Бесплатная доставка"
+msgstr "Pulsuz çatdırılma"
 
 #: core/templates/about.html:28 core/templates/partials/footer.html:132
 msgid "Over $200"
-msgstr "От $200"
+msgstr "$200-dən yuxarı"
 
 #: core/templates/about.html:36 core/templates/partials/footer.html:140
 msgid "Money back"
-msgstr "Возврат денег"
+msgstr "Pul geri"
 
 #: core/templates/about.html:36 core/templates/partials/footer.html:140
 msgid "Return within 7 days"
-msgstr "Возврат в течение 7 дней"
+msgstr "7 gün ərzində qaytar"
 
 #: core/templates/about.html:44 core/templates/partials/footer.html:148
 msgid "Buy 4 get 5th"
-msgstr "Купи 4, получи 5-й бесплатно"
+msgstr "4 ədəd al, 5-ci pulsuz"
 
 #: core/templates/about.html:44 core/templates/partials/footer.html:148
 #, python-format
 msgid "50%% off"
-msgstr "50%% скидка"
+msgstr "50%% endirim"
 
 #: core/templates/about.html:52
 msgid "Need Help"
-msgstr "Нужна помощь"
+msgstr "Köməy lazımdır"
 
 #: core/templates/about.html:52 core/templates/partials/footer.html:156
 #: core/templates/partials/footer.html:202
 msgid "Call us"
-msgstr "Позвоните нам"
+msgstr "Bizə zəng edin"
 
 #: core/templates/about.html:65
 msgid "How it was created"
-msgstr "Как это было создано"
+msgstr "Necə yaradıldı"
 
 #: core/templates/about.html:77
 msgid "Our Journal"
-msgstr "Наш журнал"
+msgstr "Bizim Jurnal"
 
 #: core/templates/blog.html:12 core/templates/contact.html:12
 #: core/templates/shop.html:13 core/templates/single-blog.html:13
-#, fuzzy
-#| msgid "Home"
 msgid "Home /"
-msgstr "Главная"
+msgstr "Əsas /"
 
 #: core/templates/contact.html:25 core/templates/thank-you.html:17
 msgid "Contact Information"
-msgstr "Контактная информация"
+msgstr "Əlaqə məlumatları"
 
 #: core/templates/contact.html:68 core/templates/contact.html:73
 msgid "Privacy Policy"
-msgstr "Политика конфиденциальности"
+msgstr "Gizlilik Siyasəti"
 
 #: core/templates/contact.html:76
 msgid "Submit"
-msgstr "Отправить"
+msgstr "Göndər"
 
 #: core/templates/home.html:20
 msgid "Summer Collection"
-msgstr "Летняя коллекция"
+msgstr "Yay Kolleksiyası"
 
 #: core/templates/home.html:21
 msgid "This is Summer Collection"
-msgstr "Это летняя коллекция"
+msgstr "Bu Yay Kolleksiyasıdır"
 
 #: core/templates/home.html:23 core/templates/home.html:39
-#, fuzzy
-#| msgid "Shop"
 msgid "Shop now"
-msgstr "Магазин"
+msgstr "İndi alış-veriş edin"
 
 #: core/templates/home.html:36
 msgid "Winter Collection"
-msgstr "Зимняя коллекция"
+msgstr "Qış Kolleksiyası"
 
 #: core/templates/home.html:37
 msgid "This is Winter Collection"
-msgstr "Это зимняя коллекция"
+msgstr "Bu Qış Kolleksiyasıdır"
 
 #: core/templates/home.html:53
 msgid "Featured Products"
-msgstr "Популярные товары"
+msgstr "Seçilmiş məhsullar"
 
 #: core/templates/home.html:55
 msgid "View all"
-msgstr "Посмотреть все"
+msgstr "Hamısına bax"
 
 #: core/templates/home.html:119
 msgid "Street Wear"
-msgstr "Уличная одежда"
+msgstr "Küçə geyimləri"
 
 #: core/templates/home.html:120
-msgid "Basic shoes."
-msgstr "Базовая обувь."
+msgid "Basic Wear."
+msgstr "Əsas geyim."
 
 #: core/templates/home.html:121
 msgid "This is Street Wear"
-msgstr "Это уличная одежда"
+msgstr "Bu Küçə Geyimləridir"
 
 #: core/templates/home.html:123 core/templates/home.html:138
 #: core/templates/home.html:151
-#, fuzzy
-#| msgid "Winter Collection"
 msgid "shop collection"
-msgstr "Зимняя коллекция"
+msgstr "koleksiyaya bax"
 
 #: core/templates/home.html:135 core/templates/home.html:148
-#, fuzzy
-#| msgid "Winter Collection"
 msgid "Basic Collection"
-msgstr "Зимняя коллекция"
+msgstr "Əsas Kolleksiya"
 
 #: core/templates/home.html:136
-#, fuzzy
-#| msgid "Basic shoes."
 msgid "Basic Shoes"
-msgstr "Базовая обувь."
+msgstr "Əsas Ayakkabılar"
 
 #: core/templates/home.html:149
-msgid "Basic T-Shirt"
-msgstr "Базовая футболка"
+msgid "Basic Hats"
+msgstr "Əsas Qalstuxlar"
 
 #: core/templates/home.html:165
 #, python-format
 msgid "Get 25%% off"
-msgstr "Получите скидку 25%%"
+msgstr "25%% endirim əldə edin"
 
-#: core.templates/home.html:167
+#: core/templates/home.html:167
 #, python-format
 msgid "Get 25%% off discount code"
-msgstr "Получите код скидки 25%%"
+msgstr "25%% endirim kodu alın"
 
 #: core/templates/home.html:171
 msgid "Enter your email"
-msgstr "Введите ваш email"
+msgstr "Emailinizi daxil edin"
 
 #: core/templates/home.html:172
 msgid "Subscribe"
-msgstr "Подписаться"
+msgstr "Abunə olun"
 
 #: core/templates/home.html:181
 msgid "Best Selling Products"
-msgstr "Лучшие продукты"
+msgstr "Ən çox satılan məhsullar"
 
 #: core/templates/home.html:235
 msgid "Flash Sales"
-msgstr "Распродажа"
+msgstr "Flash Satışlar"
 
 #: core/templates/home.html:289
 msgid "Outers Collection"
-msgstr "Коллекция верхней одежды"
+msgstr "Əsas Kolleksiya"
 
 #: core/templates/home.html:290
 msgid "Basic Outers."
-msgstr "Базовая верхняя одежда."
+msgstr "Əsas əməkdaşlar."
 
 #: core/templates/home.html:291
 msgid "This is Outers Collection"
-msgstr "Это коллекция верхней одежды"
+msgstr "Bu Əsas Kolleksiyadır"
 
 #: core/templates/home.html:303
 msgid "Quotation"
-msgstr "Цитата"
+msgstr "Izahat"
 
 #: core/templates/home.html:305
 msgid ""
 "The greatest glory in living lies not in never falling, but in rising every "
 "time we fall."
 msgstr ""
-"Величайшая слава в жизни заключается не в том, чтобы никогда не падать, а в "
-"том, чтобы подниматься каждый раз, когда мы падаем."
-
+"Həyatda ən böyük şan, heç vaxt düşməməkdə deyil, hər düşdüyümüzdə qalxmaqdadır."
+ 
 #: core/templates/home.html:306
 msgid "Nelson Mandela"
-msgstr "Нельсон Мандела"
+msgstr "Nelson Mandela"
 
 #: core/templates/home.html:314
 msgid "Latest Blog"
-msgstr "Последний блог"
+msgstr "Ən sonuncu Bloq"
 
 #: core/templates/home.html:316
 msgid "View All"
-msgstr "Посмотреть все"
+msgstr "Hamısını bax"
 
+#: core/templates/partials/footer.html:44
 #: core/templates/partials/footer.html:54
 msgid "Basket"
-msgstr ""
+msgstr "Səbət"
 
 #: core/templates/partials/footer.html:80
 msgid "Instagram"
 msgstr "Instagram"
 
 #: core/templates/partials/footer.html:82
-#, fuzzy
-#| msgid "Follow us on Instagram"
 msgid "Follow us on instagram"
-msgstr "Подпишитесь на нас в Instagram"
+msgstr "Bizə Instagramda bənzəyin"
 
 #: core/templates/partials/footer.html:156
 msgid "Need Help?"
-msgstr "Нужна помощь?"
+msgstr "Köməy lazımdır?"
 
 #: core/templates/partials/footer.html:173
-#, fuzzy
-#| msgid "About"
 msgid "About Us"
-msgstr "О нас"
+msgstr "Bizim haqqımızda"
 
 #: core/templates/partials/footer.html:176
 #: core/templates/partials/header.html:69
 msgid "Blog"
-msgstr "Блог"
+msgstr "Bloq"
 
 #: core/templates/partials/footer.html:179
 #: core/templates/partials/header.html:66
 msgid "Shop"
-msgstr "Магазин"
+msgstr "Mağaza"
 
 #: core/templates/partials/footer.html:186
-#, fuzzy
-#| msgid "Quotation"
 msgid "Information"
-msgstr "Цитата"
+msgstr "Məlumat"
 
 #: core/templates/partials/footer.html:189
 #: core/templates/partials/header.html:64
 msgid "About"
-msgstr "О нас"
+msgstr "Haqqında"
 
 #: core/templates/partials/footer.html:192
 #: core/templates/partials/header.html:71
 msgid "Contact"
-msgstr "Контакты"
+msgstr "Əlaqə"
 
 #: core/templates/partials/footer.html:199
-#, fuzzy
-#| msgid "Need Help"
 msgid "Help"
-msgstr "Нужна помощь"
+msgstr "Kömək"
 
 #: core/templates/partials/footer.html:200
 msgid "Do you need help?"
-msgstr "Вам нужна помощь?"
+msgstr "Köməyə ehtiyacınız var?"
 
 #: core/templates/partials/footer.html:216
 msgid "Freebies by"
-msgstr "Подарки от"
+msgstr "Pulsuz məhsullar tərəfindən"
 
 #: core/templates/partials/footer.html:216
 msgid "Distributed by"
-msgstr "Распространяется"
+msgstr "Təchizat edən"
 
 #: core/templates/partials/footer.html:216
 msgid "ThemeWagon"
@@ -294,45 +274,39 @@ msgstr "ThemeWagon"
 
 #: core/templates/partials/footer.html:219
 msgid "Payment options"
-msgstr "Варианты оплаты"
+msgstr "Ödəniş seçimləri"
 
 #: core/templates/partials/footer.html:221
 msgid "visa"
-msgstr "Visa"
+msgstr "visa"
 
 #: core/templates/partials/footer.html:222
-#, fuzzy
-#| msgid "Mastercard"
 msgid "mastercard"
-msgstr "Mastercard"
+msgstr "mastercard"
 
 #: core/templates/partials/footer.html:223
-#, fuzzy
-#| msgid "American Express"
 msgid "american-express"
-msgstr "American Express"
+msgstr "american-express"
 
 #: core/templates/partials/header.html:18
 msgid "Welcome"
-msgstr "Добро пожаловать"
+msgstr "Xoş gəlmisiniz"
 
-#: core/templates/partials/header.html:20
+#: core/templates/partials/header.html:20 user/templates/login.html:8
 msgid "Login"
-msgstr "Войти"
+msgstr "Daxil olun"
 
 #: core/templates/thank-you.html:10
-#, fuzzy
-#| msgid "Thank you"
 msgid "Thank You!"
-msgstr "Спасибо"
+msgstr "Təşəkkür edirik!"
 
 #: core/templates/thank-you.html:11
 msgid "We will get in touch with you shortly."
-msgstr "Мы свяжемся с вами в ближайшее время."
+msgstr "Tezliklə sizinlə əlaqə saxlayacağıq."
 
 #: core/templates/thank-you.html:23
 msgid "Phone"
-msgstr "Телефон"
+msgstr "Telefon"
 
 #: core/templates/thank-you.html:33
 msgid "Email"
@@ -340,34 +314,48 @@ msgstr "Email"
 
 #: core/templates/thank-you.html:44
 msgid "Address"
-msgstr "Адрес"
+msgstr "Ünvan"
 
-#: user/templates/user-profile.html:93
-#, fuzzy
-#| msgid "Quotation"
+#: user/templates/login.html:103
+msgid "Don"
+msgstr "Qeydiyyatdan keçin"
+
+#: user/templates/login.html:103
+msgid "Register here"
+msgstr "Buradan qeydiyyatdan keçin"
+
+#: user/templates/register.html:7
+msgid "Register"
+msgstr "Qeydiyyatdan keçin"
+
+#: user/templates/register.html:130
+msgid "Already have an account?"
+msgstr "Artıq hesabınız var?"
+
+#: user/templates/register.html:130
+msgid "Login here"
+msgstr "Buradan daxil olun"
+
+#: user/templates/user-profile.html:126
 msgid "Welcome, Your Information"
-msgstr "Цитата"
+msgstr "Xoş gəldiniz, Sizin Məlumatınız"
 
-#: user/templates/user-profile.html:120
+#: user/templates/user-profile.html:146
+msgid "Edit Your Profile"
+msgstr "Profilinizi redaktə edin"
+
+#: user/templates/user-profile.html:153
 msgid "Profile Image"
-msgstr "Изображение профиля"
+msgstr "Profil Şəkli"
 
-#: user/templates/user-profile.html:127
+#: user/templates/user-profile.html:181
 msgid "Save Changes"
-msgstr "Сохранить изменения"
+msgstr "Dəyişiklikləri yadda saxlayın"
 
-#: user/templates/user-profile.html:132
+#: user/templates/user-profile.html:187
 msgid "Logout"
-msgstr "Выйти"
+msgstr "Çıxış"
 
-#: user/templates/user-profile.html:134
+#: user/templates/user-profile.html:189
 msgid "Please log in to view your profile."
-msgstr "Пожалуйста, войдите, чтобы просмотреть свой профиль."
-
-#, fuzzy
-#~| msgid "Outers Collection"
-#~ msgid "Коллекция верхней одежды"
-#~ msgstr "Коллекция верхней одежды"
-
-#~ msgid "Free shipping on orders over $100"
-#~ msgstr "Бесплатная доставка при заказе от $100"
+msgstr "Zəhmət olmasa profilinizi görmək üçün daxil olun."

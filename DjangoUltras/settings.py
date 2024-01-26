@@ -123,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGES = [
     ('en', _('English')),
-    ('ru', _('Russian')),
+    ('az', _('Azerbaijani')),
 ]
 
 LANGUAGE_CODE = 'en'
@@ -132,7 +132,7 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
 
-MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
 TIME_ZONE = 'UTC'
 

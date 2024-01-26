@@ -31,10 +31,11 @@ class Brand(BaseModel):
         return self.title
 
 class ProductManager(models.Manager):
-    def filter_by_price(self, products, min_price=None, max_price=None):
+    def filter_by_price(self, min_price=None, max_price=None):
+        queryset = self.get_queryset()
         if min_price is not None and max_price is not None:
-            return products.filter(price__range=(min_price, max_price))
-        return products
+            return queryset.filter(price__range=(min_price, max_price))
+        return queryset
 
 class Product(models.Model):
     image = models.ImageField(upload_to='products/') 
@@ -43,11 +44,15 @@ class Product(models.Model):
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, null=True, blank=True)
     description = RichTextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    slug = models.SlugField(unique=True, blank=True, null=True)
+    slug = models.SlugField(null=True, blank=True)
     likes = models.ManyToManyField(CustomUser, related_name='liked_products', blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
     in_basket_quantity = models.PositiveIntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(f"{self.title}")
+        super().save(*args, **kwargs)
 
     objects = ProductManager()
 
@@ -62,24 +67,12 @@ class Product(models.Model):
     def discounted_price(self):
         discount_amount = (self.discount / 100) * self.price
         discounted_price = self.price - discount_amount
-        return round(discounted_price, 2)
-    
+        return round(discounted_price, 2) 
+
     def save(self, *args, **kwargs):
         if not self.slug:
-            base_slug = slugify(self.title)
-            unique_slug = base_slug
-            counter = 1
-
-            while Product.objects.filter(slug=unique_slug).exists():
-                unique_slug = f"{base_slug}-{counter}"
-                counter += 1
-
-            self.slug = unique_slug
-
-        if not self.slug:  # Add this check to make sure the slug is not empty
-            self.slug = slugify(self.title)  # Set a default slug if still empty
-
-        return super().save(*args, **kwargs)
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -109,24 +102,8 @@ class Blog(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            base_slug = slugify(self.title)
-            unique_slug = base_slug
-            counter = 1
-
-            while Blog.objects.filter(slug=unique_slug).exists():
-                unique_slug = f"{base_slug}-{counter}"
-                counter += 1
-
-            self.slug = unique_slug
-
-        if not self.slug:  # Add this check to make sure the slug is not empty
-            self.slug = slugify(self.title)  # Set a default slug if still empty
-
-        return super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.title
+        self.slug = slugify(f"{self.title}")
+        super().save(*args, **kwargs)
 
 class Contact(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)

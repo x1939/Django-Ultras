@@ -16,12 +16,6 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ['username', 'email', 'image', 'password1', 'password2']
 
-    def __init__(self, *args, **kwargs):
-        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
-        for field_name in ['password1', 'password2']:
-            if field_name in self.fields:
-                del self.fields[field_name]
-
 class UserProfileUpdateForm(forms.ModelForm):
     old_password = forms.CharField(widget=forms.PasswordInput, required=False)
     new_password = forms.CharField(widget=forms.PasswordInput, required=False)
