@@ -13,3 +13,4 @@ Links:
 2) Projects GitHub link: https://github.com/x1939/DjanguUltras
 
 Project was created by "x1939".# Django-Ultras
+# Django-Ultras
