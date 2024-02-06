@@ -43,37 +43,13 @@ def user_logout(request):
 def user_profile(request):
     user = request.user
     form = UserProfileUpdateForm(instance=user)
-    password_form = PasswordChangeForm(user, request.POST)
 
     if request.method == 'POST':
         form = UserProfileUpdateForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully.')
+            logger.info(f'User {user.username} updated profile successfully.')
+            return redirect('user-profile')
 
-        if 'old_password' not in request.POST or 'new_password1' not in request.POST or 'new_password2' not in request.POST:
-            # Process profile update only if password change fields are not present
-            if form.is_valid():
-                form.save()
-                messages.success(request, 'Profile updated successfully.')
-                logger.info(f'User {user.username} updated profile successfully.')
-                return redirect('user-profile')
-
-        else:
-            # Process password change only if password change fields are present
-            password_form = PasswordChangeForm(user, request.POST)
-            if password_form.is_valid():
-                if user.check_password(password_form.cleaned_data['old_password']):
-                    user.set_password(password_form.cleaned_data['new_password1'])
-                    user.save()
-                    update_session_auth_hash(request, user)  # Important for security
-                    messages.success(request, 'Password changed successfully.')
-                    logger.info(f'User {user.username} changed password successfully.')
-                    return redirect('user-profile')
-                else:
-                    messages.error(request, 'Incorrect current password.')
-                    return redirect('user-profile')
-            else:
-                print("Password form is not valid.")
-                print(password_form.errors)
-                messages.error(request, 'Invalid password change request.')
-                return redirect('user-profile')
-
-    return render(request, 'user-profile.html', {'form': form, 'password_form': password_form})
+    return render(request, 'user-profile.html', {'form': form})

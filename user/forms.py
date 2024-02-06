@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 from django.forms import ClearableFileInput
 from .models import CustomUser
 
@@ -17,9 +17,6 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ['username', 'email', 'image', 'password1', 'password2']
 
 class UserProfileUpdateForm(forms.ModelForm):
-    old_password = forms.CharField(widget=forms.PasswordInput, required=False)
-    new_password = forms.CharField(widget=forms.PasswordInput, required=False)
-
     class Meta:
         model = CustomUser
         fields = ['username', 'email', 'image']
@@ -29,3 +26,10 @@ class UserProfileUpdateForm(forms.ModelForm):
         if old_password and not self.instance.check_password(old_password):
             raise forms.ValidationError("Incorrect old password.")
         return old_password
+
+    def clean(self):
+        cleaned_data = super().clean()
+        old_password = cleaned_data.get("old_password")
+
+        if old_password:
+            raise forms.ValidationError("Old password is not allowed for profile update.")

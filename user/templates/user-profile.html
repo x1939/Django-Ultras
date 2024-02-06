@@ -197,6 +197,8 @@
         <!-- Add the logout link here -->
         <button class="btn btn-danger btn-full btn-medium"
             onclick="window.location.href='{% url 'user_logout' %}'">{% trans 'Logout' %}</button>
+        <button class="btn btn-danger btn-full btn-medium"
+            onclick="window.location.href='{% url 'home' %}'">{% trans 'Home' %}</button>
         {% else %}
         <p>{% trans 'Please log in to view your profile.' %}</p>
         {% endif %}
